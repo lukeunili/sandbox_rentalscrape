@@ -1,1 +1,3 @@
-# sandbox_rentalscrape
+Sandbox RentalScrape
+
+To connect to this repository, please follow these steps: <br> 1. Copy the link for the repository <br> 2. Create a new project in PyCharm <br> 3. Create a Git Repository in VCS - Import into Version Control <br> 4. In VCS - Git - Remotes enter the Repo-link <br> 5. In VCS - Git - Pull, pull the repository with the branch <strong>master</strong>, not main. <br> 6. Install Django with pip install django <br><br> You should now be able to run the server! 
