@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block mainContent %}
+<br><br>
+<h4>Hello World, I am using an awesome template by {{ firstname }}</h4>
+<br>
+His full name is {{ fullname }}
+<br>
+{% endblock %}
+
+{% block mainContent2%}
+ <form action="." method="POST"> {% csrf_token %}
+        {{form.as_p}}
+        <input type="Submit" name="Save">
+    </form>
+
+{% endblock %}
