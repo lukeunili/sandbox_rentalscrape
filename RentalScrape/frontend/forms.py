@@ -15,3 +15,6 @@ class SearchForm(forms.ModelForm):
 
 class Testclass-Johannes
 
+
+class testclass_Lukas
+
