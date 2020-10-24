@@ -1,8 +1,13 @@
 {% extends 'base.html' %}
 
 {% block mainContent %}
-<br><br>
+<br>
 <h4>Hi, put in your search request for your rental car:</h4>
+<br>
+
+{% load static %}
+<img src="{% static "bmw_m4.jpg" %}" width="550px"/>
+<p><br></p>
 {% endblock %}
 
 {% block mainContent2%}
@@ -10,5 +15,4 @@
         {{form.as_p}}
         <input type="Submit" name="Save">
     </form>
-
 {% endblock %}
