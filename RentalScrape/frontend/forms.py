@@ -13,8 +13,3 @@ class SearchForm(forms.ModelForm):
             raise forms.ValidationError("Station not available")
         return tmp
 
-class Testclass-Johannes
-
-
-class testclass_Lukas
-
