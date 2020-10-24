@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from.forms import SearchInput
+from.forms import SearchForm
 
 # Create your views here.
 
@@ -8,10 +8,10 @@ from.forms import SearchInput
  #   return render(httprequest, "home.html")
 
 def QueryCreateView(httprequest, *args, **kwargs):
-    search_form = SearchInput(httprequest.POST or None)
-    #if search_form.is_valid():
-    search_form.save()
-    search_form = SearchInput()
+    search_form = SearchForm(httprequest.POST or None)
+    if search_form.is_valid():
+        search_form.save()
+        search_form = SearchForm()
 
     context = {
         "form": search_form
