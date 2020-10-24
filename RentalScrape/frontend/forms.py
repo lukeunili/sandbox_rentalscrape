@@ -12,3 +12,6 @@ class SearchForm(forms.ModelForm):
         if len(tmp) < 3:
             raise forms.ValidationError("Station not available")
         return tmp
+
+class Testclass-Johannes
+
