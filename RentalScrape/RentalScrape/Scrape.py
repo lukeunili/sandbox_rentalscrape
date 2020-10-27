@@ -1,39 +1,81 @@
+# import libraries
+#import urllib.request
+#from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-import os
-from time import sleep
-from selenium.webdriver.support import expected_conditions as EC
+import time
+import pandas as pd
+
+# specify the url
+from selenium.webdriver.remote.webelement import WebElement
+
+urlpage = 'https://www.sixt.at/#/reservation/offerlist'
+print(urlpage)
+# run Chrome webdriver from executable path of your choice
+driver = webdriver.Chrome()
+
+# get web page
+driver.get(urlpage)
+# execute script to scroll down the page
+driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
+# sleep for 2s
+time.sleep(2)
+# click cookie button
+cookie_button = driver.find_element_by_xpath("/html/body/div/div[1]/div[5]/div/div/div[2]/div/div/div")
+cookie_button.click()
+time.sleep(0.5)
+# click and enter text into rental station button
+rental_station = driver.find_element_by_xpath('//*[@id="pickupStation"]')
+rental_station.click()
+time.sleep(2)
+rental_station.send_keys("Hamburg Flughafen")
+time.sleep(2)
+rental_station_confirm = driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div/span/div/div/div/div[1]/div/div/div[2]/div[2]/div/div/div[2]/div')
+rental_station_confirm.click()
+time.sleep(1)
+# scroll until the end of the website
+driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
+time.sleep(2)
+# defines all possible rental offers at the specific station and certain dates
+offers = driver.find_elements_by_xpath("//*[@class='OfferList__gridItem']")
+print('Number of results', len(offers))
+
+# create empty array to store data
+data = []
+# loop over results
+for result in offers:
+
+    car_type_element = result.find_element_by_class_name("OfferTile__descriptionTitle")
+    car_type = car_type_element.text
+
+    car_price_element = result.find_element_by_class_name("OfferTile__offerPriceNormal")
+    car_price = car_price_element.text
+
+    mileage_element = result.find_element_by_class_name("CheckList__checkmarkTitle")
+    mileage = mileage_element.text
 
 
-driver = webdriver.Chrome('/users/johannes/chromedriver')
-driver.get('https://www.sixt.at/')
+    # bookingclass_element = result.find_elements_by_class_name("OfferTile__wrapper")
+    # bookingclass = bookingclass_element.GetClassName()
+    # append dict to array
+    data.append({"car type": car_type, "price per day": car_price,"mileage": mileage})
 
-Cockie = "//*[@id='t3CookieCta']/div/div"
-PickupStation = "//*[@id='pickupStation']"
-PickupStationChoice = "//*[@id='root']/div/div[1]/div[2]/div[1]/div/div/div/div[3]/div/span/div/div/div/div[1]/div/div/div[2]/div[2]/div/div/div[2]/div"
-PickupDate = "//*[@id='root']/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div[1]/div[2]/div[1]/div/div[1]/div/span"
-PickupTime = "//*[@id='root']/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div[1]/div[2]/div[1]/div/div[2]/div/span[1]"
-DropOffDate = "//*[@id='root']/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div[1]/div[2]/div[2]/div/div[1]/div/span"
-DropOffTime = "//*[@id='root']/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div[1]/div[2]/div[2]/div/div[2]/div/span[1]"
-Button = "//*[@id='root']/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div[1]/div[3]/button"
+time.sleep(2)
+#//*[@id="root"]/div/div[1]/div[2]/div[2]/div/div[3]/ul/div[1]/div/span/div/div[1]/div[1]/div/span
+#//*[@id="root"]/div/div[1]/div[2]/div[2]/div/div[3]/ul/div[2]/div/span/div/div[1]/div[1]/div/span
+#//*[@id="root"]/div/div[1]/div[2]/div[2]/div/div[3]/ul/div[37]/div/span/div/div[1]/div[1]/div/span
+#pickup_time = driver.find_element_by_xpath("/html/body/div/div[1]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[1]/div[1]/div[2]/div[1]/div/div[2]/div/span[1]")
+#pickup_time.click()
 
+#pickup_time_select = driver.find_element_by_xpath("/html/body/div/div[1]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div/span/div/div/div[2]/div/div/div[28]/span")
+#pickup_time_select.click()
 
-CockieElement = WebDriverWait(driver, 30).until(lambda driver: driver.find_element_by_xpath(Cockie))
-CockieElement.click()
+# close driver
+#driver.quit()
+# save to pandas dataframe
+df = pd.DataFrame(data)
+print(df)
 
+# write to csv
+df.to_csv('firsttry.csv')
 
-PickupStationElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath(PickupStation))
-PickupStationElement.click()
-PickupStationElement.send_keys('Frankfurt Flughafen')
-
-PickupStationChoiceElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath(PickupStationChoice))
-PickupStationChoiceElement.click()
-
-
-ButtonElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath(Button))
-ButtonElement.click()
-
-
-sleep(5)
-
-driver.quit()
+driver.close()
