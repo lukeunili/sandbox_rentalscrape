@@ -1,3 +1,5 @@
+# pip install celery to make it working
+
 import os
 from celery import Celery
 
