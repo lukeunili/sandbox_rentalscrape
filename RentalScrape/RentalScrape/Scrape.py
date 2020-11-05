@@ -8,10 +8,12 @@ import pandas as pd
 # specify the url
 from selenium.webdriver.remote.webelement import WebElement
 
-urlpage = 'https://www.sixt.at/#/reservation/offerlist'
+urlpage = 'https://www.sixt.at/'
 print(urlpage)
 # run Chrome webdriver from executable path of your choice
 driver = webdriver.Chrome()
+
+# driver.set_driver_size(420, 480)
 
 # get web page
 driver.get(urlpage)
@@ -29,9 +31,12 @@ rental_station.click()
 time.sleep(2)
 rental_station.send_keys("Hamburg Flughafen")
 time.sleep(2)
-rental_station_confirm = driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div/span/div/div/div/div[1]/div/div/div[2]/div[2]/div/div/div[2]/div')
+rental_station_confirm = driver.find_element_by_xpath('//*[@id="root"]/div/div[1]/div[2]/div[1]/div/div/div/div[3]/div/span/div/div/div/div[1]/div/div/div[2]/div[2]/div/div/div[2]')
 rental_station_confirm.click()
 time.sleep(1)
+rental_Button = driver.find_element_by_xpath('//*[@id="root"]/div/div[1]/div[2]/div[1]/div/div/div/div[2]/div[1]/div[3]/button')
+rental_Button.click()
+time.sleep(2)
 # scroll until the end of the website
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
 time.sleep(2)
