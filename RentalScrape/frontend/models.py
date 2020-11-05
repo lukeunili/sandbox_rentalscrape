@@ -17,7 +17,6 @@ def no_past(value):
 #        raise ValidationError('Drop-off date must be after pick-up date.')
 
 
-
 class SearchInput(models.Model):
     Station = models.CharField(verbose_name='Rental station', max_length=120)
     Pickupdate = models.DateField(verbose_name="Pick-up Date", validators=[no_past])
@@ -26,3 +25,6 @@ class SearchInput(models.Model):
     Dropoffdate = models.DateField(verbose_name="Drop-off Date")
     Dropofftimestart = models.TimeField(verbose_name="Earliest Drop-off time")
     Dropofftimeend = models.TimeField(verbose_name="Latest Drop-Off time", help_text= "<br>Please be aware, that latest drop-off time should be <strong>no later than 2 hours</strong> after first drop-off time.")
+#    Pickuptimes = models.CharField(max_length=120)
+#    Dropofftimes = models.CharField(max_length=120)
+

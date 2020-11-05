@@ -5,9 +5,11 @@ from django.core.exceptions import ValidationError
 
 """Limit the choice of time in accordance with most sixt stations"""
 
-TIME_CHOICES_FIRST = [(dt.time(hour=x), '{:02d}:00'.format(x)) for x in range(8, 19)]
-TIME_CHOICES_LAST = [(dt.time(hour=x), '{:02d}:00'.format(x)) for x in range(8, 21)]
+TIME_CHOICES_FIRST = [(dt.time(hour=x), '{:02d}:00'.format(x)) for x in range(8, 19)] + [(dt.time(hour=x), '{:02d}:30'.format(x)) for x in range(8, 18)]
+TIME_CHOICES_LAST = [(dt.time(hour=x), '{:02d}:00'.format(x)) for x in range(9, 21)] + [(dt.time(hour=x), '{:02d}:30'.format(x)) for x in range(8, 20)]
 
+TIME_CHOICES_FIRST.sort()
+TIME_CHOICES_LAST.sort()
 
 """Define a widget to be able to use the timePicker
  for better usability"""
@@ -24,7 +26,7 @@ class DateInput(forms.DateInput):
 
 
 """Define search form and corresponding widgets that
- are displayed to the user"""
+ are displayed to the user incl. limited times available for choice"""
 
 class SearchForm2(forms.ModelForm):
     class Meta:
