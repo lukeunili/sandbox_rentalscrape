@@ -1,14 +1,26 @@
 from django.db import models
 import datetime as dt
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 
 begin_time = models.TimeField(default=dt.time(00, 00))
 
+def no_past(value):
+    today = dt.date.today()
+    if value < today:
+        raise ValidationError('Pick-up date cannot be in the past.')
+
+#def after_pickup(value):
+#    pickup = SearchInput.Pickupdate
+#    if value < pickup:
+#        raise ValidationError('Drop-off date must be after pick-up date.')
+
+
 
 class SearchInput(models.Model):
     Station = models.CharField(verbose_name='Rental station', max_length=120)
-    Pickupdate = models.DateField(verbose_name="Pick-up Date")
+    Pickupdate = models.DateField(verbose_name="Pick-up Date", validators=[no_past])
     Pickuptimestart = models.TimeField(verbose_name="Earliest Pick-Up time")
     Pickuptimeend = models.TimeField(verbose_name="Latest Pick-Up time", help_text= "<br>Please be aware, that latest pick-up time should be <strong>no later than 2 hours</strong> after first pick-up time.")
     Dropoffdate = models.DateField(verbose_name="Drop-off Date")

@@ -1,27 +1,26 @@
 from django import forms
 from .models import SearchInput
 import datetime as dt
+from django.core.exceptions import ValidationError
+
+"""Limit the choice of time in accordance with most sixt stations"""
 
 TIME_CHOICES_FIRST = [(dt.time(hour=x), '{:02d}:00'.format(x)) for x in range(8, 19)]
 TIME_CHOICES_LAST = [(dt.time(hour=x), '{:02d}:00'.format(x)) for x in range(8, 21)]
 
-#def present_or_future_date(value):
-#    if value < dt.date.today():
- #       raise forms.ValidationError("The date cannot be in the past!")
- #   return value
-
-"""Define a widget to be able to use the datePicker
- for better usability"""
-
-class DateInput(forms.DateInput):
-    input_type = 'date'
-#    validators = present_or_future_date('date')
 
 """Define a widget to be able to use the timePicker
  for better usability"""
 
 class TimeInput(forms.TimeInput):
     input_type = 'time'
+
+
+"""Define a widget to be able to use the datePicker
+ for better usability"""
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
 
 """Define search form and corresponding widgets that
