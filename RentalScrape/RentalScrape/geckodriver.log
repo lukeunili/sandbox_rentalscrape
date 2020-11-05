@@ -19,10 +19,30 @@ JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't fin
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
 1604583805618	Marionette	INFO	Listening on port 64939
 1604583806051	Marionette	WARN	TLS certificate errors will be ignored for this session
-1604583922500	geckodriver	INFO	Listening on 127.0.0.1:51963
-1604583925568	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\lre\\AppData\\Local\\Temp\\rust_mozprofileqxnZOa"
+1604585261737	Marionette	INFO	Stopped listening on port 64939
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+al\\Temp\\rust_mozprofileqxnZOa"
 Can't find symbol 'eglSwapBuffersWithDamageEXT'.
 JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
 1604583928515	Marionette	INFO	Listening on port 51972
 1604583928778	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604585259223	Marionette	INFO	Stopped listening on port 51972
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1604587255040	geckodriver	INFO	Listening on 127.0.0.1:57230
+1604587258113	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\lre\\AppData\\Local\\Temp\\rust_mozprofileWrkdPn"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1604587260987	Marionette	INFO	Listening on port 57238
+1604587261282	Marionette	WARN	TLS certificate errors will be ignored for this session

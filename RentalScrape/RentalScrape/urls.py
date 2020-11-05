@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from frontend.views import QueryCreateView
+from frontend.views import QueryCreateView, OfferList
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', QueryCreateView)
+    path('home/', QueryCreateView),
+    path('results', OfferList)
 ]

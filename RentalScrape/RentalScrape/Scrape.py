@@ -11,7 +11,7 @@ from selenium.webdriver.remote.webelement import WebElement
 urlpage = 'https://www.sixt.at/'
 print(urlpage)
 # run Chrome webdriver from executable path of your choice
-driver = webdriver.Chrome()
+driver = webdriver.Firefox()
 
 # driver.set_driver_size(420, 480)
 

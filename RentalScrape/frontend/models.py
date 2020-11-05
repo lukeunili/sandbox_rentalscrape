@@ -28,3 +28,10 @@ class SearchInput(models.Model):
 #    Pickuptimes = models.CharField(max_length=120)
 #    Dropofftimes = models.CharField(max_length=120)
 
+class Offer(models.Model):
+    CarType = models.CharField(max_length=50)
+    Price = models.CharField(max_length=10)
+    PickUpDate = models.DateField()
+    PickUpTime = models.TimeField()
+    DropOffDate = models.DateField()
+    DropOffTime = models.TimeField()

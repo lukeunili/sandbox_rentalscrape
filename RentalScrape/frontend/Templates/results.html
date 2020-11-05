@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block mainContent %}
+
+{% endblock %}
+
+{% block mainContent2%}
+
+{% for obj in allOffers %}
+{{ obj.CarType}} - {{obj.Price}}
+{% endfor %}
+
+{% endblock %}
