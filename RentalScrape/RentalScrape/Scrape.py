@@ -58,11 +58,23 @@ for result in offers:
     mileage_element = result.find_element_by_class_name("CheckList__checkmarkTitle")
     mileage = mileage_element.text
 
+    pickup_date_element = result.find_element_by_xpath("/html/body/div/div[1]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[1]/div[1]/div[2]/div[1]/div/div[1]/div/span")
+    pickup_date = pickup_date_element.text
+
+    pickup_time_element = result.find_element_by_xpath("/html/body/div/div[1]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[1]/div[1]/div[2]/div[1]/div/div[2]/div/span[1]")
+    pickup_time = pickup_time_element.text
+
+    dropoff_date_element = result.find_element_by_xpath("/html/body/div/div[1]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[1]/div[1]/div[2]/div[2]/div/div[1]/div/span")
+    dropoff_date = dropoff_date_element.text
+
+    dropoff_time_element = result.find_element_by_xpath("/html/body/div/div[1]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[1]/div[1]/div[2]/div[2]/div/div[2]/div/span[1]")
+    dropoff_time = dropoff_time_element.text
 
     # bookingclass_element = result.find_elements_by_class_name("OfferTile__wrapper")
     # bookingclass = bookingclass_element.GetClassName()
     # append dict to array
-    data.append({"car type": car_type, "price per day": car_price,"mileage": mileage})
+    data.append({"car type": car_type, "price per day": car_price,"mileage": mileage, "pickupdate" : pickup_date, "pickuptime" : pickup_time, "dropoffdate" : dropoff_date, "dropofftime" : dropoff_time})
+
 
 time.sleep(2)
 #//*[@id="root"]/div/div[1]/div[2]/div[2]/div/div[3]/ul/div[1]/div/span/div/div[1]/div[1]/div/span
@@ -83,4 +95,4 @@ print(df)
 # write to csv
 df.to_csv('firsttry.csv')
 
-driver.close()
+#driver.close()

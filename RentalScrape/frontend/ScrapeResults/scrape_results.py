@@ -61,4 +61,5 @@ df = pd.DataFrame(data)
 print(df)
 
 # write to csv
-df.to_csv('/ScrapeResults/firsttry.csv')
+df.to_csv('scraperesults/firsttry.csv')
+
