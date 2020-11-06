@@ -1,72 +1,70 @@
 ,car type,price per day,mileage,pickupdate,pickuptime,dropoffdate,dropofftime
-0,OPEL CROSSLAND X,"€46,99 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-1,SEAT LEON,"€47,49 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-2,VW GOLF,"€49,49 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-3,SKODA OCTAVIA COMBI,"€49,99 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-4,VW GOLF AUT.,"€51,99 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-5,BMW 1ER,"€52,49 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-6,SKODA OCTAVIA COMBI AUT.,"€52,99 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-7,VW PASSAT,"€53,49 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-8,VW TOURAN,"€53,49 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-9,FORD MONDEO KOMBI,"€53,99 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-10,VW TIGUAN,"€54,49 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-11,AUDI A3 LIMOUSINE,"€55,54 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-12,VW PASSAT AUT.,"€56,48 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-13,BMW 1ER AUT.,"€56,99 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-14,FORD MONDEO KOMBI AUT.,"€56,99 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-15,FORD S-MAX TURNIER,"€56,99 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-16,BMW 2ER COUPÉ,"€57,98 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-17,AUDI A4,"€57,99 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-18,BMW X1,"€58,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-19,BMW 3ER TOURING,"€59,48 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-20,AUDI A4 AUT.,"€61,99 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-21,AUDI A4 AVANT AUT.,"€63,50 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-22,MERCEDES-BENZ E200/220 AUT.,"€68,99 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-23,AUDI A5 40 COUPÉ/SPORTBACK,"€70,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-24,MERCEDES-BENZ E200/220 T-MODELL AUT.,"€71,49 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-25,BMW X3 20,"€72,98 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-26,VW SHARAN,"€80,99 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-27,BMW 430/435 COUPÉ,"€81,00 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-28,VW SHARAN AUT.,"€88,99 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-29,BMW M135I,"€90,98 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-30,AUDI TTS COUPÉ,"€94,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-31,BMW M340 TOURING,"€97,98 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-32,JAGUAR I-PACE,"€108,49 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-33,VW T6 KOMBI,"€112,49 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-34,MERCEDES-BENZ VITO AUT.,"€123,48 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-35,AUDI A7,"€123,48 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-36,BMW X5M 50D,"€153,49 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-37,BMW X4M,"€157,48 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-38,BMW X3M,"€165,49 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-39,MERCEDES-BENZ S-KLASSE AUT.,"€168,00 | Tag",inkl. unbegrenzt km,12. Nov,12:30,14. Nov,08:30
-40,MERCEDES-BENZ S-CLASS L,"€198,49 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-41,AUDI S5 SPORTBACK,"€208,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-42,BMW M2 COUPÉ,"€208,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-43,BMW M240 CABRIO,"€219,49 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-44,AUDI TTS CABRIO,"€220,48 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-45,MERCEDES-BENZ S500 L,"€222,49 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-46,BMW M550 LIMOUSINE,"€226,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-47,BMW M550D TOURING,"€226,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-48,AUDI S6,"€232,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-49,AUDI S6 AVANT,"€232,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-50,MERCEDES-AMG C63,"€241,98 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-51,BMW M4 COUPÉ,"€241,98 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-52,BMW M4 CABRIO,"€290,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-53,MERCEDES-BENZ V-KLASSE (8 SITZE),"€296,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-54,MERCEDES-AMG GLE 53,"€305,48 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-55,MERCEDES-AMG CLS53,"€305,48 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-56,BMW M5,"€320,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-57,MERCEDES-AMG E53 CABRIO,"€320,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-58,MERCEDES-AMG E63 T-MODELL,"€320,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-59,MERCEDES-BENZ GLS 350,"€332,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-60,MERCEDES-BENZ S-KLASSE CABRIO,"€334,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-61,AUDI S8,"€354,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-62,BMW X7 M50,"€368,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-63,BMW M850 COUPÉ,"€392,48 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-64,MERCEDES-AMG S63 L,"€418,50 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-65,MERCEDES-AMG GT S,"€496,49 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-66,MERCEDES-AMG GT C ROADSTER,"€517,50 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-67,MERCEDES-AMG S63 CABRIO,"€546,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-68,BMW M850 CABRIO,"€546,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-69,MERCEDES-AMG GT 63S,"€551,50 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
-70,BMW M8 CABRIO,"€593,99 | Tag",inkl. 750 km,12. Nov,12:30,14. Nov,08:30
+0,OPEL CROSSLAND X,"44,49 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+1,SEAT LEON,"44,99 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+2,VW GOLF,"47,50 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+3,SKODA OCTAVIA COMBI,"47,99 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+4,VW GOLF AUT.,"49,99 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+5,BMW 1ER,"49,99 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+6,SKODA OCTAVIA COMBI AUT.,"50,50 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+7,VW PASSAT,"50,99 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+8,VW TOURAN,"50,99 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+9,FORD MONDEO KOMBI,"51,49 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+10,VW TIGUAN,"51,99 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+11,AUDI A3 LIMOUSINE,"52,99 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+12,VW PASSAT AUT.,"53,50 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+13,FORD MONDEO KOMBI AUT.,"53,99 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+14,BMW 1ER AUT.,"53,99 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+15,FORD S-MAX TURNIER,"53,99 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+16,BMW 2ER COUPÉ,"54,49 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+17,AUDI A4,"54,99 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+18,BMW X1,"55,54 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+19,BMW 3ER TOURING,"55,99 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+20,AUDI A4 AUT.,"58,49 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+21,AUDI A4 AVANT AUT.,"59,99 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+22,MERCEDES-BENZ E200/220 AUT.,"64,49 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+23,AUDI A5 40 COUPÉ/SPORTBACK,"66,49 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+24,MERCEDES-BENZ E200/220 T-MODELL AUT.,"67,47 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+25,BMW X3 20,"68,49 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+26,BMW 430/435 COUPÉ,"75,98 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+27,VW SHARAN,"76,49 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+28,VW SHARAN AUT.,"84,00 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+29,BMW M135I,"85,49 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+30,AUDI TTS COUPÉ,"88,99 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+31,BMW M340 TOURING,"91,98 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+32,VW T6 KOMBI,"105,48 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+33,MERCEDES-BENZ VITO AUT.,"115,99 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+34,BMW X5M 50D,"144,49 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+35,BMW X4M,"147,99 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+36,BMW X3M,"155,00 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+37,MERCEDES-BENZ S-KLASSE AUT.,"157,98 ",inkl. unbegrenzt km,13. Nov,12:30,15. Nov,08:30
+38,MERCEDES-BENZ S-CLASS L,"186,50 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+39,AUDI S5 SPORTBACK,"196,48 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+40,BMW M2 COUPÉ,"196,48 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+41,BMW M240 CABRIO,"206,00 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+42,AUDI TTS CABRIO,"206,99 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+43,MERCEDES-BENZ S500 L,"208,98 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+44,BMW M550 LIMOUSINE,"213,00 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+45,BMW M550D TOURING,"213,00 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+46,AUDI S6,"218,49 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+47,AUDI S6 AVANT,"218,49 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+48,MERCEDES-AMG C63,"226,99 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+49,BMW M4 COUPÉ,"226,99 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+50,BMW M4 CABRIO,"273,50 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+51,MERCEDES-BENZ V-KLASSE (8 SITZE),"278,98 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+52,MERCEDES-AMG GLE 53,"287,00 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+53,MERCEDES-AMG CLS53,"287,00 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+54,BMW M5,"301,49 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+55,MERCEDES-AMG E53 CABRIO,"301,49 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+56,MERCEDES-AMG E63 T-MODELL,"301,49 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+57,MERCEDES-BENZ GLS 350,"312,99 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+58,MERCEDES-BENZ S-KLASSE CABRIO,"314,48 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+59,AUDI S8,"333,49 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+60,BMW X7 M50,"346,49 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+61,BMW M850 COUPÉ,"368,48 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+62,MERCEDES-AMG S63 L,"392,99 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+63,MERCEDES-AMG GT S,"465,99 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+64,MERCEDES-AMG GT C ROADSTER,"485,98 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+65,MERCEDES-AMG S63 CABRIO,"513,99 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+66,BMW M850 CABRIO,"513,99 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+67,MERCEDES-AMG GT 63S,"517,99 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30
+68,BMW M8 CABRIO,"557,99 ",inkl. 750 km,13. Nov,12:30,15. Nov,08:30

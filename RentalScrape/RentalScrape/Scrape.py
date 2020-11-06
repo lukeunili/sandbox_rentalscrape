@@ -73,7 +73,7 @@ for result in offers:
     # bookingclass_element = result.find_elements_by_class_name("OfferTile__wrapper")
     # bookingclass = bookingclass_element.GetClassName()
     # append dict to array
-    data.append({"car type": car_type, "price per day": car_price,"mileage": mileage, "pickupdate" : pickup_date, "pickuptime" : pickup_time, "dropoffdate" : dropoff_date, "dropofftime" : dropoff_time})
+    data.append({"car type": car_type, "price per day": car_price[1:-5],"mileage": mileage, "pickupdate" : pickup_date, "pickuptime" : pickup_time, "dropoffdate" : dropoff_date, "dropofftime" : dropoff_time})
 
 
 time.sleep(2)
