@@ -20,11 +20,22 @@ def QueryCreateView(httprequest, *args, **kwargs):
 
     return render(httprequest, "home.html", context)
 
-def OfferList(httprequest, *args, **kwargs):
-    allOffers = Results()
-    context = {
-        "allOffers": allOffers,
-        "title": "All offers"
-    }
+#def OfferList(httprequest, *args, **kwargs):
+#    allOffers = Results()
+#    context = {
+#        "allOffers": allOffers,
+#        "title": "All offers"
+#    }
+#
+#    return render(httprequest, "results.html", context)
 
-    return render(httprequest, "results.html", context)
+
+"""def OfferList(request):
+    df = pd.read_csv("firsttry.csv")
+    # 'tableview/static/csv/20_Startups.csv' is the django
+    # directory where csv file exist.
+    # Manipulate DataFrame using to_html() function
+    geeks_object = df.to_html()
+
+    return render(geeks_object, "results.html")"""
+

@@ -8,7 +8,7 @@ import pandas as pd
 urlpage = 'https://www.sixt.at/'
 print(urlpage)
 # run Chrome webdriver from executable path of your choice
-driver = webdriver.Chrome()
+driver = webdriver.Firefox()
 
 #driver.set_window_size(800, 2000)
 time.sleep(2)
