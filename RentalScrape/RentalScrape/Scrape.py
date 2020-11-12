@@ -47,7 +47,7 @@ time.sleep(2)
 
 #rental_PickupDateArrow = driver.find_element_by_css_selector("div[aria-label='Next Month']")
 
-# loop to check, if the pick up date is displayed on the website
+# checking if the pick up date is displayed on the website
 if driver.find_element_by_css_selector("div[aria-label='Fr. 18. Dez 2020']").is_displayed():
     print('Pickup Date: Success')
 else:
