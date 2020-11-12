@@ -21,5 +21,5 @@ from frontend.views import QueryCreateView #OfferList
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', QueryCreateView),
-#   path('results', OfferList),
+#    path('results', OfferList),
 ]

@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponse
 from .forms import SearchForm2
 import pandas as pd
+import sqlite3 as sql
+import os.path
 from pandas import DataFrame as Results
 
 # Create your views here.
@@ -30,12 +32,13 @@ def QueryCreateView(httprequest, *args, **kwargs):
 #    return render(httprequest, "results.html", context)
 
 
-"""def OfferList(request):
-    df = pd.read_csv("firsttry.csv")
-    # 'tableview/static/csv/20_Startups.csv' is the django
-    # directory where csv file exist.
-    # Manipulate DataFrame using to_html() function
-    geeks_object = df.to_html()
+#def OfferList(request):
+#    conn = sql.connect('results.db')
+#    results = pd.read_sql('SELECT * FROM allresults', conn)
+#    # 'tableview/static/csv/20_Startups.csv' is the django
+#    # directory where csv file exist.
+#    # Manipulate DataFrame using to_html() function
+#    geeks_object = results.to_html()
 
-    return render(geeks_object, "results.html")"""
+#    return render(geeks_object, "results.html")
 

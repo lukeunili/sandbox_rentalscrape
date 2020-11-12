@@ -2,7 +2,8 @@ from pandas import DataFrame
 from selenium import webdriver
 import time
 import pandas as pd
-
+import sqlite3 as sql
+import csv
 
 # specify the url
 urlpage = 'https://www.sixt.at/'
@@ -19,7 +20,7 @@ driver.get(urlpage)
 # execute script to scroll down the page
 # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
 # sleep for 2s
-time.sleep(2)
+time.sleep(5)
 # click cookie button
 cookie_button = driver.find_element_by_xpath("/html/body/div/div[1]/div[5]/div/div/div[2]/div/div/div")
 cookie_button.click()
@@ -64,6 +65,7 @@ rental_DropOffDate.click()
 
 
 # choose pick up time 13:30
+time.sleep(0.5)
 rental_PickUpTimeButton = driver.find_element_by_xpath("//*[@class='SearchEngine__pickupDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")
 rental_PickUpTimeButton.click()
 time.sleep(0.5)
@@ -73,6 +75,7 @@ rental_PickUpTime.click()
 time.sleep(0.5)
 
 # choose drop off time 12:00
+time.sleep(0.5)
 rental_DropOffTimeButton = driver.find_element_by_xpath("//*[@class='SearchEngine__returnDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")
 rental_DropOffTimeButton.click()
 time.sleep(0.5)
@@ -122,7 +125,7 @@ for result in offers:
     # bookingclass_element = result.find_elements_by_class_name("OfferTile__wrapper")
     # bookingclass = bookingclass_element.GetClassName()
     # append dict to array
-    data.append({"car type": car_type, "price per day": car_price[1:-5],"mileage": mileage, "pickupdate" : pickup_date, "pickuptime" : pickup_time, "dropoffdate" : dropoff_date, "dropofftime" : dropoff_time})
+    data.append({"car_type": car_type, "price_per_day": car_price[1:-5],"mileage": mileage, "pickupdate" : pickup_date, "pickuptime" : pickup_time, "dropoffdate" : dropoff_date, "dropofftime" : dropoff_time})
 
 df = pd.DataFrame(data)
 df.to_csv('firsttry.csv')
@@ -171,7 +174,7 @@ for result in offers2:
     dropoff_time_element = result.find_element_by_xpath("/html/body/div/div[1]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[1]/div[1]/div[2]/div[2]/div/div[2]/div/span[1]")
     dropoff_time = dropoff_time_element.text
 
-    data.append({"car type": car_type, "price per day": car_price[1:-5], "mileage": mileage, "pickupdate": pickup_date, "pickuptime": pickup_time, "dropoffdate": dropoff_date, "dropofftime": dropoff_time})
+    data.append({"car_type": car_type, "price_per_day": car_price[1:-5], "mileage": mileage, "pickupdate": pickup_date, "pickuptime": pickup_time, "dropoffdate": dropoff_date, "dropofftime": dropoff_time})
 
 df = pd.DataFrame(data)
 df.to_csv('firsttry.csv', mode='a', header=False)
@@ -181,7 +184,15 @@ print(df)
 
 # write to csv
 df.to_csv('firsttry.csv')
+print('Finished writing to csv!')
 
-print('Finish!')
+# write to sqlite3
+conn = sql.connect('results.db')
+cursor = conn.cursor()
+dropTableStatement = "DROP TABLE allresults"
+cursor.execute(dropTableStatement)
+print("Old table deleted")
+df.to_sql('allresults', conn)
+print('Finished writing to SQL database')
 
 #driver.close()

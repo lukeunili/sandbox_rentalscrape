@@ -25,8 +25,7 @@ class SearchInput(models.Model):
     Dropoffdate = models.DateField(verbose_name="Drop-off Date")
     Dropofftimestart = models.TimeField(verbose_name="Earliest Drop-off time")
     Dropofftimeend = models.TimeField(verbose_name="Latest Drop-Off time", help_text= "<br>Please be aware, that latest drop-off time should be <strong>no later than 2 hours</strong> after first drop-off time.")
-#    Pickuptimes = models.CharField(max_length=120)
-#    Dropofftimes = models.CharField(max_length=120)
+
 
 class Offer(models.Model):
     CarType = models.CharField(max_length=50)
