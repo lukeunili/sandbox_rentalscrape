@@ -1,19 +1,24 @@
 from pandas import DataFrame
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 import time
 import pandas as pd
 import sqlite3 as sql
-import csv
 
 # specify the url
 urlpage = 'https://www.sixt.at/'
 print(urlpage)
-# run Chrome webdriver from executable path of your choice
-driver = webdriver.Firefox()
 
-#driver.set_window_size(800, 2000)
+# define chromedriver to execute headless, incl. window size
+WINDOW_SIZE = "1920,1080"
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
+
+# run Chrome webdriver from executable path of your choice
+driver = webdriver.Chrome(options=chrome_options)
+
 time.sleep(2)
-#size = driver.get_window_size()
 
 # get web page
 driver.get(urlpage)
