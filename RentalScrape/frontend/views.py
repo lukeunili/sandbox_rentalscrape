@@ -32,8 +32,8 @@ def QueryCreateView(httprequest, *args, **kwargs):
 #    return render(httprequest, "results.html", context)
 
 
-#def OfferList(request):
-#    conn = sql.connect('results.db')
+# def OfferList(request):
+#     conn = sql.connect('results.db')
 #    results = pd.read_sql('SELECT * FROM allresults', conn)
 #    # 'tableview/static/csv/20_Startups.csv' is the django
 #    # directory where csv file exist.

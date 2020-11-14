@@ -34,3 +34,5 @@ class Offer(models.Model):
     PickUpTime = models.TimeField()
     DropOffDate = models.DateField()
     DropOffTime = models.TimeField()
+
+

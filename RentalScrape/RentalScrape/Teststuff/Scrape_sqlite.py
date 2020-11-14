@@ -18,7 +18,7 @@ chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
 # run Chrome webdriver from executable path of your choice
 driver = webdriver.Chrome(options=chrome_options)
 
-time.sleep(2)
+#time.sleep(2)
 
 # get web page
 driver.get(urlpage)
