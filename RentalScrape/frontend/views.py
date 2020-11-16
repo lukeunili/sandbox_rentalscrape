@@ -22,6 +22,13 @@ def QueryCreateView(httprequest, *args, **kwargs):
 
     return render(httprequest, "home.html", context)
 
+
+def aboutus(httprequest):
+    return render(httprequest, "aboutus.html")
+
+def tipstricks(httprequest):
+    return render(httprequest, "tipstricks.html")
+
 #def OfferList(httprequest, *args, **kwargs):
 #    allOffers = Results()
 #    context = {

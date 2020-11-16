@@ -1,14 +1,64 @@
 {% extends 'base.html' %}
-
 {% block mainContent %}
-<br>
-<h4>Hi, put in your search request for your rental car:</h4>
-<br>
-{% endblock %}
 
-{% block mainContent2%}
- <form action="." method="POST"> {% csrf_token %}
-        {{form.as_p}}
-        <input type="Submit" name="Save">
-    </form>
+<!doctype html>
+<html lang="en">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Pricing example · Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/pricing/">
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="{%  static  'css/pricing.css'  %}" rel="stylesheet">
+  </head>
+  <body>
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Welcome to RentalScrape</h1>
+  <p class="lead">It has never been easier to find the cheapest SIXT rate!</p>
+</div>
+
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Please choose your rental period:</h4>
+      </div>
+      <div class="card-body">
+        <form
+            action="." method="POST"> {% csrf_token %}
+            {{form.as_p}}
+            <input type="Submit" name="Save" class="btn btn-lg btn-block btn-outline-primary">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
 {% endblock %}
