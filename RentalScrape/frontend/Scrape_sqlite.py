@@ -22,38 +22,29 @@ driver = webdriver.Chrome(options=chrome_options)
 
 # get web page
 driver.get(urlpage)
-# execute script to scroll down the page
-# driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
-# sleep for 2s
 time.sleep(5)
 # click cookie button
 cookie_button = driver.find_element_by_xpath("/html/body/div/div[1]/div[5]/div/div/div[2]/div/div/div")
 cookie_button.click()
 time.sleep(1)
 # click and enter text into rental station button
-# Mobilerental_stationPicker = driver.find_element_by_xpath('//*[@id="root"]/div/div[1]/div[2]/div[1]/div/div[2]/div/div/div[2]/span')
 RentalStationPicker = driver.find_element_by_id("pickupStation")
 RentalStationPicker.click()
 time.sleep(1)
-#rental_station = driver.find_element_by_xpath('//*[@id="pageSlideWrapper"]/div/div/div[1]/div[2]/div/input')
-#rental_station.click()
-#time.sleep(2)
 RentalStationPicker.send_keys("Muenchen Flughafen")
 time.sleep(2)
 rental_station_confirm = driver.find_element_by_xpath("//div[contains(@class, 'StationList__title')]")
-
 rental_station_confirm.click()
 time.sleep(1)
 # click pick up date
 rental_PickUpDateButton = driver.find_element_by_xpath("//div[@class='DateButton__horizontal DateButton__wrapper']/span[@class='DateButton__date']")
 rental_PickUpDateButton.click()
-
 # choose pick up date 15.01.2021
 time.sleep(2)
 
 #rental_PickupDateArrow = driver.find_element_by_css_selector("div[aria-label='Next Month']")
 
-# loop to check, if the pick up date is displayed on the website
+# IF to check, if the pick up date is displayed on the website
 if driver.find_element_by_css_selector("div[aria-label='Fr. 18. Dez 2020']").is_displayed():
     print('Pickup Date: Success')
 else:
@@ -61,7 +52,6 @@ else:
     print("failure")
 
 rental_PickUpDate = driver.find_element_by_css_selector("div[aria-label='Fr. 18. Dez 2020']")
-
 rental_PickUpDate.click()
 time.sleep(0.5)
 # choose drop off date

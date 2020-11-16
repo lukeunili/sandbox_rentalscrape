@@ -49,3 +49,4 @@ def tipstricks(httprequest):
 
 #    return render(geeks_object, "results.html")
 
+
