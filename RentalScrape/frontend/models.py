@@ -27,12 +27,20 @@ class SearchInput(models.Model):
     Dropofftimeend = models.TimeField(verbose_name="Latest Drop-Off time", help_text= "<br>Please be aware, that latest drop-off time should be <strong>no later than 2 hours</strong> after first drop-off time.")
 
 
-class Offer(models.Model):
+class OfferList(models.Model):
     CarType = models.CharField(max_length=50)
     Price = models.CharField(max_length=10)
     PickUpDate = models.DateField()
     PickUpTime = models.TimeField()
     DropOffDate = models.DateField()
     DropOffTime = models.TimeField()
+
+    class Meta:
+        managed = False
+        db_table = "results.db"
+
+OfferList.objects = OfferList.objects.using("results.db")
+
+class Offer(models.Model):
 
 

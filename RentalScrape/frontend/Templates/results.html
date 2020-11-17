@@ -3,11 +3,10 @@
 {% block mainContent %}
 
 {% endblock %}
+{{ OffersList }}
+{% for obj in OffersList %}
+{% endfor %}
 
 {% block mainContent2%}
-
-{% for obj in allOffers %}
-{{ obj.CarType}} - {{obj.Price}}
-{% endfor %}
 
 {% endblock %}

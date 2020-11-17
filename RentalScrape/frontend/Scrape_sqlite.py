@@ -117,10 +117,12 @@ for result in offers:
     dropoff_time_element = result.find_element_by_xpath("/html/body/div/div[1]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[1]/div[1]/div[2]/div[2]/div/div[2]/div/span[1]")
     dropoff_time = dropoff_time_element.text
 
-    # bookingclass_element = result.find_elements_by_class_name("OfferTile__wrapper")
-    # bookingclass = bookingclass_element.GetClassName()
+
+    bookingclass_element = result.find_element_by_class_name("OfferTile__wrapper")
+    bookingclass = bookingclass_element.get_attribute("class")
+
     # append dict to array
-    data.append({"car_type": car_type, "price_per_day": car_price[1:-6],"mileage": mileage, "pickupdate" : pickup_date, "pickuptime" : pickup_time, "dropoffdate" : dropoff_date, "dropofftime" : dropoff_time})
+    data.append({"car_type": car_type, "price_per_day": car_price[1:-6],"mileage": mileage, "pickupdate" : pickup_date, "pickuptime" : pickup_time, "dropoffdate" : dropoff_date, "dropofftime" : dropoff_time, "bookingclass": bookingclass[-4:]})
 
 df = pd.DataFrame(data)
 df.to_csv('firsttry.csv')
@@ -169,7 +171,10 @@ for result in offers2:
     dropoff_time_element = result.find_element_by_xpath("/html/body/div/div[1]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[1]/div[1]/div[2]/div[2]/div/div[2]/div/span[1]")
     dropoff_time = dropoff_time_element.text
 
-    data.append({"car_type": car_type, "price_per_day": car_price[1:-6], "mileage": mileage, "pickupdate": pickup_date, "pickuptime": pickup_time, "dropoffdate": dropoff_date, "dropofftime": dropoff_time})
+    bookingclass_element = result.find_element_by_class_name("OfferTile__wrapper")
+    bookingclass = bookingclass_element.get_attribute("class")
+
+    data.append({"car_type": car_type, "price_per_day": car_price[1:-6], "mileage": mileage, "pickupdate": pickup_date, "pickuptime": pickup_time, "dropoffdate": dropoff_date, "dropofftime": dropoff_time, "bookingclass": bookingclass[-4:]})
 
 df = pd.DataFrame(data)
 df.to_csv('firsttry.csv', mode='a', header=False)
