@@ -1,129 +1,66 @@
 ,car_type,price_per_day,mileage,pickupdate,pickuptime,dropoffdate,dropofftime,bookingclass
-0,VW UP!,25.66,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,MCMN
-1,VW POLO,25.99,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,ECMR
-2,OPEL CROSSLAND X,28.32,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,CCMR
-3,SEAT LEON,28.66,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,CDMR
-4,VW GOLF,29.66,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,CLMR
-5,SKODA OCTAVIA COMBI,30.33,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,CWMR
-6,VW GOLF AUT.,31.32,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,CLAR
-7,BMW 1ER,31.66,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,CPMR
-8,SKODA OCTAVIA COMBI AUT.,31.66,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,CWAR
-9,VW PASSAT,32.00,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,ILMR
-10,VW TOURAN,32.00,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,IVMR
-11,FORD MONDEO KOMBI,32.33,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,IWMR
-12,VW TIGUAN,32.66,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,IFMR
-13,AUDI A3 LIMOUSINE,33.33,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,SDMR
-14,VW PASSAT AUT.,33.66,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,ILAR
-15,BMW 1ER AUT.,33.99,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,CPAR
-16,FORD S-MAX TURNIER,33.99,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,SWMR
-17,FORD MONDEO KOMBI AUT.,34.00,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,IWAR
-18,BMW 2ER COUPÉ,34.32,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,SSMR
-19,BMW X1,34.66,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,SFMR
-20,AUDI A4,35.66,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,FDMR
-21,BMW 3ER TOURING,36.32,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,FWMR
-22,AUDI A4 AUT.,37.99,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,FDAR
-23,AUDI A4 AVANT AUT.,38.66,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,FWAR
-24,MERCEDES-BENZ E200/220 AUT.,41.98,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,PDAR
-25,AUDI A5 40 COUPÉ/SPORTBACK,42.98,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,PSAR
-26,MERCEDES-BENZ E200/220 T-MODELL AUT.,43.65,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,PWAR
-27,AUDI A6 45/50 AUT.,44.31,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,LDAR
-28,BMW 530/540 TOURING AUT.,44.32,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,LWAR
-29,BMW X3 20,44.33,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,PFMR
-30,VW SHARAN,46.98,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,SVMR
-31,BMW 430/435 COUPÉ,46.99,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LSAR
-32,BMW X4 30,48.65,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LFAR
-33,BMW M135I,50.32,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,CCAN
-34,VW SHARAN AUT.,51.65,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,SVAR
-35,AUDI TTS COUPÉ,52.32,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,SSAX
-36,BMW M340,56.65,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,FCAR
-37,BMW M340 TOURING,56.65,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,FWAX
-38,BMW X3 M40,66.31,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LFAJ
-39,VW T6 KOMBI,68.32,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,FVMR
-40,MERCEDES-BENZ S-KLASSE AUT.,69.33,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,XDAR
-41,BMW X5,69.99,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XFAR
-42,AUDI A7,71.31,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XSAR
-43,MERCEDES-BENZ VITO AUT.,74.99,inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,FVAR
-44,BMW X5M 50D,84.65,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XJAN
-45,MERCEDES-BENZ S-CLASS L,85.99,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XCAN
-46,BMW X3M,90.99,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LFAN
-47,BMW X4M,90.99,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,PXBR
-48,MERCEDES-BENZ S500 L,95.99,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XLAN
-49,AUDI S5 SPORTBACK,114.98,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LCAR
-50,BMW M550 LIMOUSINE,124.66,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LPAN
-51,AUDI S6,127.98,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LDAN
-52,AUDI S6 AVANT,127.98,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LWMR
-53,BMW M4 COUPÉ,132.99,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LZAR
-54,MERCEDES-BENZ V-KLASSE (8 SITZE),171.32,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XVAN
-55,MERCEDES-AMG CLS53,176.32,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XSMR
-56,BMW M5,185.00,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XDAN
-57,MERCEDES-BENZ GLS 350,191.98,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XFAN
-58,BMW M850 COUPÉ,195.66,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XXAX
-59,AUDI S8,204.65,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XCAR
-60,BMW X7 M50,212.99,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XJAR
-61,MERCEDES-AMG S63 L,241.32,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XPAL
-62,MERCEDES-BENZ G500,284.99,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XFMX
-63,BMW M8 COUPÉ,367.65,inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XXAN
-64,VW UP!,25.66,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,MCMN
-65,VW POLO,25.99,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,ECMR
-66,OPEL CROSSLAND X,28.32,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,CCMR
-67,SEAT LEON,28.66,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,CDMR
-68,VW GOLF,29.66,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,CLMR
-69,SKODA OCTAVIA COMBI,30.33,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,CWMR
-70,VW GOLF AUT.,31.32,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,CLAR
-71,BMW 1ER,31.66,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,CPMR
-72,SKODA OCTAVIA COMBI AUT.,31.66,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,CWAR
-73,VW PASSAT,32.00,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,ILMR
-74,VW TOURAN,32.00,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,IVMR
-75,FORD MONDEO KOMBI,32.33,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,IWMR
-76,VW TIGUAN,32.66,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,IFMR
-77,AUDI A3 LIMOUSINE,33.33,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,SDMR
-78,VW PASSAT AUT.,33.66,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,ILAR
-79,BMW 1ER AUT.,33.99,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,CPAR
-80,FORD S-MAX TURNIER,33.99,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,SWMR
-81,FORD MONDEO KOMBI AUT.,34.00,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,IWAR
-82,BMW 2ER COUPÉ,34.32,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,SSMR
-83,BMW X1,34.66,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,SFMR
-84,AUDI A4,35.66,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,FDMR
-85,BMW 3ER TOURING,36.32,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,FWMR
-86,AUDI A4 AUT.,37.99,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,FDAR
-87,AUDI A4 AVANT AUT.,38.66,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,FWAR
-88,MERCEDES-BENZ E200/220 AUT.,41.98,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,PDAR
-89,AUDI A5 40 COUPÉ/SPORTBACK,42.98,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,PSAR
-90,MERCEDES-BENZ E200/220 T-MODELL AUT.,43.65,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,PWAR
-91,AUDI A6 45/50 AUT.,44.31,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,LDAR
-92,BMW 530/540 TOURING AUT.,44.32,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,LWAR
-93,BMW X3 20,44.33,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,PFMR
-94,VW SHARAN,46.98,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,SVMR
-95,BMW 430/435 COUPÉ,46.99,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,LSAR
-96,BMW X4 30,48.65,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,LFAR
-97,BMW M135I,50.32,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,CCAN
-98,VW SHARAN AUT.,51.65,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,SVAR
-99,AUDI TTS COUPÉ,52.32,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,SSAX
-100,BMW M340,56.65,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,FCAR
-101,BMW M340 TOURING,56.65,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,FWAX
-102,BMW X3 M40,66.31,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,LFAJ
-103,VW T6 KOMBI,68.32,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,FVMR
-104,MERCEDES-BENZ S-KLASSE AUT.,69.33,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,XDAR
-105,BMW X5,69.99,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,XFAR
-106,AUDI A7,71.31,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,XSAR
-107,MERCEDES-BENZ VITO AUT.,74.99,inkl. unbegrenzt km,18. Dez,14:30,21. Dez,12:00,FVAR
-108,BMW X5M 50D,84.65,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,XJAN
-109,MERCEDES-BENZ S-CLASS L,85.99,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,XCAN
-110,BMW X3M,90.99,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,LFAN
-111,BMW X4M,90.99,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,PXBR
-112,MERCEDES-BENZ S500 L,95.99,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,XLAN
-113,AUDI S5 SPORTBACK,114.98,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,LCAR
-114,BMW M550 LIMOUSINE,124.66,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,LPAN
-115,AUDI S6,127.98,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,LDAN
-116,AUDI S6 AVANT,127.98,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,LWMR
-117,BMW M4 COUPÉ,132.99,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,LZAR
-118,MERCEDES-BENZ V-KLASSE (8 SITZE),171.32,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,XVAN
-119,MERCEDES-AMG CLS53,176.32,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,XSMR
-120,BMW M5,185.00,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,XDAN
-121,MERCEDES-BENZ GLS 350,191.98,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,XFAN
-122,BMW M850 COUPÉ,195.66,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,XXAX
-123,AUDI S8,204.65,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,XCAR
-124,BMW X7 M50,212.99,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,XJAR
-125,MERCEDES-AMG S63 L,241.32,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,XPAL
-126,MERCEDES-BENZ G500,284.99,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,XFMX
-127,BMW M8 COUPÉ,367.65,inkl. 750 km,18. Dez,14:30,21. Dez,12:00,XXAN
+0,VW UP!,"25,66",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,MCMN
+1,VW POLO,"25,99",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,ECMR
+2,OPEL CROSSLAND X,"28,32",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,CCMR
+3,SEAT LEON,"28,66",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,CDMR
+4,VW GOLF,"29,66",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,CLMR
+5,SKODA OCTAVIA COMBI,"30,33",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,CWMR
+6,VW GOLF AUT.,"31,32",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,CLAR
+7,BMW 1ER,"31,66",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,CPMR
+8,SKODA OCTAVIA COMBI AUT.,"31,66",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,CWAR
+9,VW PASSAT,"32,00",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,ILMR
+10,VW TOURAN,"32,00",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,IVMR
+11,FORD MONDEO KOMBI,"32,33",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,IWMR
+12,VW TIGUAN,"32,66",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,IFMR
+13,AUDI A3 LIMOUSINE,"33,33",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,SDMR
+14,VW PASSAT AUT.,"33,66",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,ILAR
+15,BMW 1ER AUT.,"33,99",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,CPAR
+16,FORD S-MAX TURNIER,"33,99",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,SWMR
+17,FORD MONDEO KOMBI AUT.,"34,00",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,IWAR
+18,BMW 2ER COUPÉ,"34,32",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,SSMR
+19,BMW X1,"34,66",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,SFMR
+20,AUDI A4,"35,66",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,FDMR
+21,BMW 3ER TOURING,"36,32",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,FWMR
+22,AUDI A4 AUT.,"37,99",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,FDAR
+23,AUDI A4 AVANT AUT.,"38,66",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,FWAR
+24,MERCEDES-BENZ E200/220 AUT.,"41,98",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,PDAR
+25,AUDI A5 40 COUPÉ/SPORTBACK,"42,98",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,PSAR
+26,MERCEDES-BENZ E200/220 T-MODELL AUT.,"43,65",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,PWAR
+27,AUDI A6 45/50 AUT.,"44,31",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,LDAR
+28,BMW 530/540 TOURING AUT.,"44,32",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,LWAR
+29,BMW X3 20,"44,33",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,PFMR
+30,VW SHARAN,"46,98",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,SVMR
+31,BMW 430/435 COUPÉ,"46,99",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LSAR
+32,BMW X4 30,"48,65",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LFAR
+33,BMW M135I,"50,32",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,CCAN
+34,VW SHARAN AUT.,"51,65",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,SVAR
+35,AUDI TTS COUPÉ,"52,32",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,SSAX
+36,BMW M340,"56,65",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,FCAR
+37,BMW M340 TOURING,"56,65",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,FWAX
+38,BMW X3 M40,"66,31",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LFAJ
+39,VW T6 KOMBI,"68,32",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,FVMR
+40,MERCEDES-BENZ S-KLASSE AUT.,"69,33",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,XDAR
+41,BMW X5,"69,99",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XFAR
+42,AUDI A7,"71,31",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XSAR
+43,MERCEDES-BENZ VITO AUT.,"74,99",inkl. unbegrenzt km,18. Dez,14:00,21. Dez,12:00,FVAR
+44,BMW X5M 50D,"84,65",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XJAN
+45,MERCEDES-BENZ S-CLASS L,"85,99",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XCAN
+46,BMW X3M,"90,99",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LFAN
+47,BMW X4M,"90,99",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,PXBR
+48,MERCEDES-BENZ S500 L,"95,99",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XLAN
+49,AUDI S5 SPORTBACK,"114,98",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LCAR
+50,BMW M550 LIMOUSINE,"124,66",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LPAN
+51,AUDI S6,"127,98",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LDAN
+52,AUDI S6 AVANT,"127,98",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LWMR
+53,BMW M4 COUPÉ,"132,99",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,LZAR
+54,MERCEDES-BENZ V-KLASSE (8 SITZE),"171,32",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XVAN
+55,MERCEDES-AMG CLS53,"176,32",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XSMR
+56,BMW M5,"185,00",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XDAN
+57,MERCEDES-BENZ GLS 350,"191,98",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XFAN
+58,BMW M850 COUPÉ,"195,66",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XXAX
+59,AUDI S8,"204,65",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XCAR
+60,MERCEDES-AMG GLS 63,"208,65",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XZAN
+61,BMW X7 M50,"212,99",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XJAR
+62,MERCEDES-AMG S63 L,"241,32",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XPAL
+63,MERCEDES-BENZ G500,"284,99",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XFMX
+64,BMW M8 COUPÉ,"367,65",inkl. 750 km,18. Dez,14:00,21. Dez,12:00,XXAN

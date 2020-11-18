@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from frontend.views import QueryCreateView, aboutus, tipstricks, OfferListResult
+from frontend.views import QueryCreateView, aboutus, tipstricks, OfferList
 
 
 urlpatterns = [
@@ -23,5 +23,5 @@ urlpatterns = [
     path('home/', QueryCreateView),
     path('aboutus/', aboutus),
     path('tipstricks', tipstricks),
-    path('results/', OfferListResult),
+    path('results/', OfferList),
 ]

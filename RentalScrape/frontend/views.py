@@ -31,7 +31,7 @@ def aboutus(httprequest):
 def tipstricks(httprequest):
     return render(httprequest, "tipstricks.html")
 
-def OfferListResult(request):
+"""def OfferListResult(request):
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     db_path = os.path.join(BASE_DIR, "results.db")
     Connection = sqlite3.connect(db_path)
@@ -39,17 +39,17 @@ def OfferListResult(request):
     Cursor.execute("SELECT car_type, price_per_day, pickuptime, dropofftime, mileage FROM allresults ORDER BY price_per_day +0 asc")
     OffersList = Cursor.fetchall()
     Connection.close()
-    return render(request, "results.html", {'OffersList': OffersList})
+    return render(request, "results.html", {'OffersList': OffersList})"""
 
 
-#def OfferList(httprequest, *args, **kwargs):
-#    allOffers = Results()
-#    context = {
-#        "allOffers": allOffers,
-#        "title": "All offers"
-#    }
-#
-#    return render(httprequest, "results.html", context)
+def OfferList(httprequest, *args, **kwargs):
+    allOffers = Results()
+    context = {
+        "allOffers": allOffers,
+        "title": "All offers"
+    }
+
+    return render(httprequest, "results.html", context)
 
 
 #def OfferList(request):

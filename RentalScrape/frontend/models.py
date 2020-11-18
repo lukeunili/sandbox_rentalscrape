@@ -28,19 +28,19 @@ class SearchInput(models.Model):
 
 
 class OfferList(models.Model):
-    CarType = models.CharField(max_length=50)
-    Price = models.CharField(max_length=10)
-    PickUpDate = models.DateField()
-    PickUpTime = models.TimeField()
-    DropOffDate = models.DateField()
-    DropOffTime = models.TimeField()
+    id = models.AutoField(primary_key=True)
+    car_Type = models.CharField(max_length=50)
+    price_per_day = models.CharField(max_length=10)
+    pickupdate = models.DateField()
+    pickuptime = models.TimeField()
+    dropoffdate = models.DateField()
+    dropofftime = models.TimeField()
+    bookingclass = models.CharField(max_length=4)
 
     class Meta:
         managed = False
-        db_table = "results.db"
+        db_table = 'allresults'
 
-OfferList.objects = OfferList.objects.using("results.db")
-
-class Offer(models.Model):
+OfferList.objects = OfferList.objects.using('resultsdatabase')
 
 
