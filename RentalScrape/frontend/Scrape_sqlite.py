@@ -196,4 +196,10 @@ print("Old table deleted")
 df.to_sql('allresults', conn)
 print('Finished writing to SQL database')
 
+"""Starting from here, we should rename the "index" column to "id" - after that, the model should recognize the database"""
+
+
+
+
+
 #driver.close()

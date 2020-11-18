@@ -29,8 +29,9 @@ class SearchInput(models.Model):
 
 class OfferList(models.Model):
     id = models.AutoField(primary_key=True)
-    car_Type = models.CharField(max_length=50)
+    car_type = models.CharField(max_length=50)
     price_per_day = models.CharField(max_length=10)
+    mileage = models.CharField(max_length=50)
     pickupdate = models.DateField()
     pickuptime = models.TimeField()
     dropoffdate = models.DateField()
