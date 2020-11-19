@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options
 import time
 import pandas as pd
 import sqlite3 as sql
-from models import OfferList
+from .models import Offer
 
 # specify the url
 urlpage = 'https://www.sixt.at/'
@@ -199,6 +199,9 @@ print('Finished writing to SQL database')
 
 """Starting from here, we should rename the "index" column to "id" - after that, the model should recognize the database"""
 
+for object in df:
+    tmp = Offer(car_type = object.cartype, price_per_day = object.price, mileage = object.mileage, pickup_date = object.pickupdate, pickup_time = object.pickuptime, dropoff_date = object.dropoffdate, dropoff_time = object.dropofftime, bookingclass = object.bookingclass)
+    tmp.save()
 
 
 
