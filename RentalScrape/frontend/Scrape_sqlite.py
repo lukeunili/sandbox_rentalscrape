@@ -178,7 +178,6 @@ for result in offers2:
     data.append({"car_type": car_type, "price_per_day": car_price[1:-6], "mileage": mileage, "pickupdate": pickup_date, "pickuptime": pickup_time, "dropoffdate": dropoff_date, "dropofftime": dropoff_time, "bookingclass": bookingclass[-4:]})
 
 df = pd.DataFrame(data)
-#df_new = df.rename({"index": "id", "car_type": "car_type", "price_per_day": "price_per_day", "mileage": "mileage", "pickupdate": "pickupdate", "pickuptime": "pickuptime", "dropoffdate": "dropoffdate", "dropofftime": "dropofftime", "bookingclass": "bookingclass"})
 df.to_csv('firsttry.csv', mode='a', header=False)
 
 
