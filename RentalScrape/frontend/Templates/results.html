@@ -43,28 +43,54 @@
   <p class="lead">- - -</p>
 </div>
 
-{% for obj in allOffers %}
 <div class="container">
-  <div class="card-deck mb-3 text-center">
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">{{ obj.cartype }}</h4>
-      </div>
-      <div class="card-body">
-          Price/day: {{ obj.price }}€ <br>
-          From: {{ obj.pickupdate}}, {{obj.pickuptime}} <br>
-          Until: {{ obj.dropoffdate}}, {{obj.dropofftime}}<br>
-            Mileage: {{ obj.mileage }} - {{obj.bookingclass}}<br>
-      </div>
+    <div class="row">
+    {% for obj in allOffers %}
+    {%  if forloop.counter|divisibleby:3 %}
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">{{ obj.cartype }}</h4>
+            </div>
+            <div class="card-body">
+                <img src="{%  static  'images/CCAN.png'  %}" width="150" height="100" class="center">
+                <h1 class="card-title pricing-card-title" align="center">{{ obj.price }}€<small class="text-muted">/ day</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li><strong>From:</strong> {{ obj.pickupdate}}, {{obj.pickuptime}}</li>
+                    <li><strong>Until:</strong> {{ obj.dropoffdate}}, {{obj.dropofftime}}</li>
+                    <li><strong>Mileage:</strong> {{ obj.mileage }}km - {{obj.bookingclass}}</li>
+                </ul>
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Book now</button>
+            </div>
+        </div>
+
+    {% if not forloop.last %}
+    <div class="row">
+    {% endif %}
+
+    {% else %}
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">{{ obj.cartype }}</h4>
+            </div>
+            <div class="card-body">
+                <img src="{%  static  'images/CCAN.png'  %}" width="150" height="100" class="center">
+                <h1 class="card-title pricing-card-title" align="center">{{ obj.price }}€<small class="text-muted">/ day</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li><strong>From:</strong> {{ obj.pickupdate}}, {{obj.pickuptime}}</li>
+                    <li><strong>Until:</strong> {{ obj.dropoffdate}}, {{obj.dropofftime}}</li>
+                    <li><strong>Mileage:</strong> {{ obj.mileage }}km - {{obj.bookingclass}}</li>
+                </ul>
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Book now</button>
+            </div>
+        </div>
+    {% endif %}
+    {% endfor %}
     </div>
-  </div>
 </div>
-{% endfor %}
-</body>
-</html>
+
 {% endblock %}
 
 
-{% block mainContent2%}
 
+{% block mainContent2%}
 {% endblock %}
