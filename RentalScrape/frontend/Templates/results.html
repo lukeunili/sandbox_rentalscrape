@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
 
 {% block mainContent %}
+{{ title }}<br><br>
+
+{% for obj in allOffers %}
+<h5>{{ obj.cartype }}</h5>
+Price/day: {{ obj.price }}€ <br>
+From:{{ obj.pickupdate}}, {{obj.pickuptime}} <br>
+Until: {{ obj.dropoffdate}}, {{obj.dropofftime}}<br>
+Mileage: {{ obj.mileage }} - {{obj.bookingclass}}<br><br>
+{% endfor %}
 
 {% endblock %}
-{{ OfferList }}
-{{ pickupdate }}
-{% for obj in OfferList %}
-{% endfor %}
+
 
 {% block mainContent2%}
 

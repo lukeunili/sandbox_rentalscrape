@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from .forms import SearchForm2
-from .models import OfferList
+from .models import Offer
 from django.views.generic import ListView
 import pandas as pd
 import sqlite3
@@ -43,11 +43,11 @@ def tipstricks(httprequest):
 
 
 def OfferList(httprequest, *args, **kwargs):
-    allOffers = Results()
+    allOffers = Offer.objects.all()
     context = {
         "allOffers": allOffers,
-        "title": "All offers"
-    }
+        "title": "All offers",
+        }
 
     return render(httprequest, "results.html", context)
 

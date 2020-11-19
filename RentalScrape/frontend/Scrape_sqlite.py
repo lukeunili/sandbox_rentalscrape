@@ -4,6 +4,7 @@ from selenium.webdriver.chrome.options import Options
 import time
 import pandas as pd
 import sqlite3 as sql
+from models import OfferList
 
 # specify the url
 urlpage = 'https://www.sixt.at/'

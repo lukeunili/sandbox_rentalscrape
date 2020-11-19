@@ -78,17 +78,11 @@ WSGI_APPLICATION = 'RentalScrape.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASE_ROUTERS = ('frontend.dbrouters.MyDBRouter',)
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
-    'resultsdatabase': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'results.db',
-    }
 }
 
 
