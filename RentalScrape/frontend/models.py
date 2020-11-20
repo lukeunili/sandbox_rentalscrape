@@ -31,9 +31,9 @@ class Offer(models.Model):
     cartype = models.CharField(max_length=50)
     price = models.CharField(max_length=10)
     mileage = models.CharField(max_length=50)
-    pickupdate = models.DateField()
+    pickupdate = models.CharField(max_length=10)
     pickuptime = models.TimeField()
-    dropoffdate = models.DateField()
+    dropoffdate = models.CharField(max_length=10)
     dropofftime = models.TimeField()
     bookingclass = models.CharField(max_length=4)
 

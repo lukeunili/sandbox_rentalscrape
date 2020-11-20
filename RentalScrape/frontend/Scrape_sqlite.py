@@ -4,7 +4,6 @@ from selenium.webdriver.chrome.options import Options
 import time
 import pandas as pd
 import sqlite3 as sql
-from .models import Offer
 
 # specify the url
 urlpage = 'https://www.sixt.at/'
@@ -33,7 +32,7 @@ RentalStationPicker = driver.find_element_by_id("pickupStation")
 RentalStationPicker.click()
 time.sleep(1)
 RentalStationPicker.send_keys("Muenchen Flughafen")
-time.sleep(2)
+time.sleep(4)
 rental_station_confirm = driver.find_element_by_xpath("//div[contains(@class, 'StationList__title')]")
 rental_station_confirm.click()
 time.sleep(1)
@@ -123,10 +122,10 @@ for result in offers:
     bookingclass = bookingclass_element.get_attribute("class")
 
     # append dict to array
-    data.append({"car_type": car_type, "price_per_day": car_price[1:-6],"mileage": mileage, "pickupdate" : pickup_date, "pickuptime" : pickup_time, "dropoffdate" : dropoff_date, "dropofftime" : dropoff_time, "bookingclass": bookingclass[-4:]})
+    data.append({"cartype": car_type, "price": car_price[1:-6],"mileage": mileage, "pickupdate" : pickup_date, "pickuptime" : pickup_time, "dropoffdate" : dropoff_date, "dropofftime" : dropoff_time, "bookingclass": bookingclass[-4:]})
 
 df = pd.DataFrame(data)
-df.to_csv('firsttry.csv')
+#df.to_csv('firsttry.csv')
 
 
 time.sleep(2)
@@ -175,34 +174,22 @@ for result in offers2:
     bookingclass_element = result.find_element_by_class_name("OfferTile__wrapper")
     bookingclass = bookingclass_element.get_attribute("class")
 
-    data.append({"car_type": car_type, "price_per_day": car_price[1:-6], "mileage": mileage, "pickupdate": pickup_date, "pickuptime": pickup_time, "dropoffdate": dropoff_date, "dropofftime": dropoff_time, "bookingclass": bookingclass[-4:]})
+    data.append({"cartype": car_type, "price": car_price[1:-6], "mileage": mileage, "pickupdate": pickup_date, "pickuptime": pickup_time, "dropoffdate": dropoff_date, "dropofftime": dropoff_time, "bookingclass": bookingclass[-4:]})
 
 df = pd.DataFrame(data)
-df.to_csv('firsttry.csv', mode='a', header=False)
-
+df.sort_values(by='price', ascending=True, ignore_index=True)
+#df.to_csv('firsttry.csv', mode='a', header=False)
 
 print(df)
 
 # write to csv
-df.to_csv('firsttry.csv')
-print('Finished writing to csv!')
+#df.to_csv('firsttry.csv')
+#print('Finished writing to csv!')
 
 # write to sqlite3
-conn = sql.connect('results.db')
+conn = sql.connect('../db.sqlite3')
 cursor = conn.cursor()
-dropTableStatement = "DROP TABLE allresults"
-cursor.execute(dropTableStatement)
-print("Old table deleted")
-df.to_sql('allresults', conn)
+df.to_sql('frontend_offer', conn, if_exists = 'replace', index_label = "id")
 print('Finished writing to SQL database')
-
-"""Starting from here, we should rename the "index" column to "id" - after that, the model should recognize the database"""
-
-for object in df:
-    tmp = Offer(car_type = object.cartype, price_per_day = object.price, mileage = object.mileage, pickup_date = object.pickupdate, pickup_time = object.pickuptime, dropoff_date = object.dropoffdate, dropoff_time = object.dropofftime, bookingclass = object.bookingclass)
-    tmp.save()
-
-
-
-
-#driver.close()
+#cursor.execute("Select cartype, price, pickuptime, dropofftime, mileage FROM frontend_offer ORDER BY price +0 asc")
+#print('Ordered table by price')

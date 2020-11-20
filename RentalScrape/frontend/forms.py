@@ -3,6 +3,10 @@ from .models import SearchInput
 import datetime as dt
 from django.core.exceptions import ValidationError
 
+"""List of SIXT Stations"""
+
+STATION_CHOICE = ["Muenchen Flughafen", "Wien-Schwechat Flughafen"]
+
 """Limit the choice of time in accordance with most sixt stations"""
 
 TIME_CHOICES_FIRST = [(dt.time(hour=x), '{:02d}:00'.format(x)) for x in range(8, 19)] + [(dt.time(hour=x), '{:02d}:30'.format(x)) for x in range(8, 18)]
@@ -33,6 +37,7 @@ class SearchForm2(forms.ModelForm):
         model = SearchInput
         fields = ['Station', 'Pickupdate', 'Pickuptimestart', 'Pickuptimeend', 'Dropoffdate', 'Dropofftimestart', 'Dropofftimeend']
         widgets = {
+#            'Station': forms.Select(choices=STATION_CHOICE),
             'Pickupdate': DateInput,
             'Dropoffdate': DateInput,
             'Pickuptimestart': forms.Select(choices=TIME_CHOICES_FIRST),
