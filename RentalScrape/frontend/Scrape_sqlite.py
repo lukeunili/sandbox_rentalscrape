@@ -121,8 +121,11 @@ for result in offers:
     bookingclass_element = result.find_element_by_class_name("OfferTile__wrapper")
     bookingclass = bookingclass_element.get_attribute("class")
 
+    cardescription_element = xx
+    cardescription = xx
+
     # append dict to array
-    data.append({"cartype": car_type, "price": car_price[1:-6],"mileage": mileage, "pickupdate" : pickup_date, "pickuptime" : pickup_time, "dropoffdate" : dropoff_date, "dropofftime" : dropoff_time, "bookingclass": bookingclass[-4:]})
+    data.append({"cartype": car_type, "price": car_price[1:-6],"mileage": mileage, "pickupdate" : pickup_date, "pickuptime" : pickup_time, "dropoffdate" : dropoff_date, "dropofftime" : dropoff_time, "bookingclass": bookingclass[-4:], "cardescription": cardescription})
 
 df = pd.DataFrame(data)
 #df.to_csv('firsttry.csv')
@@ -174,22 +177,18 @@ for result in offers2:
     bookingclass_element = result.find_element_by_class_name("OfferTile__wrapper")
     bookingclass = bookingclass_element.get_attribute("class")
 
-    data.append({"cartype": car_type, "price": car_price[1:-6], "mileage": mileage, "pickupdate": pickup_date, "pickuptime": pickup_time, "dropoffdate": dropoff_date, "dropofftime": dropoff_time, "bookingclass": bookingclass[-4:]})
+    cardescription_element = xx
+    cardescription = xx
+
+    data.append({"cartype": car_type, "price": car_price[1:-6], "mileage": mileage, "pickupdate": pickup_date, "pickuptime": pickup_time, "dropoffdate": dropoff_date, "dropofftime": dropoff_time, "bookingclass": bookingclass[-4:], "cardescription": cardescription})
 
 df = pd.DataFrame(data)
 df.sort_values(by='price', ascending=True, ignore_index=True)
-#df.to_csv('firsttry.csv', mode='a', header=False)
 
 print(df)
-
-# write to csv
-#df.to_csv('firsttry.csv')
-#print('Finished writing to csv!')
 
 # write to sqlite3
 conn = sql.connect('../db.sqlite3')
 cursor = conn.cursor()
 df.to_sql('frontend_offer', conn, if_exists = 'replace', index_label = "id")
 print('Finished writing to SQL database')
-#cursor.execute("Select cartype, price, pickuptime, dropofftime, mileage FROM frontend_offer ORDER BY price +0 asc")
-#print('Ordered table by price')

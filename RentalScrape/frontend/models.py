@@ -36,5 +36,6 @@ class Offer(models.Model):
     dropoffdate = models.CharField(max_length=10)
     dropofftime = models.TimeField()
     bookingclass = models.CharField(max_length=4)
+    cardescription = models.CharField(max_length=40)
 
 
