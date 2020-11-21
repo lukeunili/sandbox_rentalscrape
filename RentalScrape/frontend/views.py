@@ -28,6 +28,9 @@ def QueryCreateView(httprequest, *args, **kwargs):
 def aboutus(httprequest):
     return render(httprequest, "aboutus.html")
 
+def LoadingView(httprequest):
+    return render(httprequest, "loading.html")
+
 def tipstricks(httprequest):
     return render(httprequest, "tipstricks.html")
 
