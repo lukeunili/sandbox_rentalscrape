@@ -144,13 +144,13 @@ df = pd.DataFrame(data)
 #df.to_csv('firsttry.csv')
 
 
-for SearchPickUpTime in SearchPickUpTime:
+for SearchPickUpTime1 in SearchPickUpTime:
     driver.execute_script("window.scrollTo(0, 0);")
     rental_PickUpTimeButton = driver.find_element_by_xpath("//*[@class='SearchEngine__pickupDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")
     rental_PickUpTimeButton.click()
     time.sleep(0.5)
     #rental_PickUpTimeSearch = """ "//*[contains(text(), '""" + str(SearchPickUpTime) + """')]" """
-    rental_PickUpTime1 = driver.find_element_by_xpath("//*[contains(text(), '" + (SearchPickUpTime) +"')]")
+    rental_PickUpTime1 = driver.find_element_by_xpath("//*[contains(text(), '" + (SearchPickUpTime1) +"')]")
     rental_PickUpTime1.click()
     time.sleep(1)
 
@@ -200,14 +200,14 @@ for SearchPickUpTime in SearchPickUpTime:
         df = pd.DataFrame(data)
     print("Sucess: ", SearchPickUpTime, SearchDropOffTime)
 
-    for SearchDropOffTime in SearchDropOffTime:
+    for SearchDropOffTime1 in SearchDropOffTime:
         time.sleep(1)
         driver.execute_script("window.scrollTo(0, 0);")
         rental_DropOffTimeButton2 = driver.find_element_by_xpath("//*[@class='SearchEngine__returnDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")
         rental_DropOffTimeButton2.click()
         time.sleep(0.5)
             # rental_PickUpTimeSearch = """ "//*[contains(text(), '""" + str(SearchPickUpTime) + """')]" """
-        rental_DropoffTime2 = driver.find_element_by_xpath("//*[contains(text(), '" + str(SearchDropOffTime) +"')]")
+        rental_DropoffTime2 = driver.find_element_by_xpath("//*[contains(text(), '" + str(SearchDropOffTime1) +"')]")
         print(SearchDropOffTime)
         rental_DropoffTime2.click()
 
