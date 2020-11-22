@@ -52,7 +52,7 @@
       <div class="card-body">
 
         <form
-            action="." method="POST"> {% csrf_token %}
+            action="." method="POST" action="/loading"> {% csrf_token %}
             {{form.as_p}}
             <input type="Submit" name="Save" class="btn btn-lg btn-block btn-outline-primary">
         </form>

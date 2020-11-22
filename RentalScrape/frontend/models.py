@@ -7,17 +7,16 @@ from django.core.exceptions import ValidationError
 begin_time = models.TimeField(default=dt.time(00, 00))
 
 def no_past(value):
+    """Validation to ensure, users don't insert dates from the past"""
     today = dt.date.today()
     if value < today:
         raise ValidationError('Pick-up date cannot be in the past.')
 
-#def after_pickup(value):
-#    pickup = SearchInput.Pickupdate
-#    if value < pickup:
-#        raise ValidationError('Drop-off date must be after pick-up date.')
-
 
 class SearchInput(models.Model):
+    """Model that serves as a basis for the form at /home. Users put in their search request,
+    this search request is then processed in Scrape_sqlite.py for scraping. Some validators like
+    "no_past" are used for form validation. All search requests can be seen in this model."""
     Station = models.CharField(verbose_name='Rental station', max_length=120)
     Pickupdate = models.DateField(verbose_name="Pick-up Date", validators=[no_past])
     Pickuptimestart = models.TimeField(verbose_name="Earliest Pick-Up time")
@@ -28,6 +27,8 @@ class SearchInput(models.Model):
 
 
 class Offer(models.Model):
+    """This model is used to save the scraped data and display it to the user at /results.
+    In Scrape_sqlite.py the data is written directly into the sqlite table frontend_offer"""
     cartype = models.CharField(max_length=50)
     price = models.CharField(max_length=10)
     mileage = models.CharField(max_length=50)
