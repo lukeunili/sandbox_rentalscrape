@@ -50,11 +50,13 @@
         <h4 class="my-0 font-weight-normal">Please choose your rental period:</h4>
       </div>
       <div class="card-body">
+
         <form
             action="." method="POST"> {% csrf_token %}
             {{form.as_p}}
             <input type="Submit" name="Save" class="btn btn-lg btn-block btn-outline-primary">
         </form>
+
       </div>
     </div>
   </div>
