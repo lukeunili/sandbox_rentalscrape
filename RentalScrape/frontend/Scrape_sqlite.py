@@ -144,13 +144,13 @@ df = pd.DataFrame(data)
 #df.to_csv('firsttry.csv')
 
 
-for SearchPickUpTime in SearchPickUpTime:
+for SearchPickUpTime1 in SearchPickUpTime:
     driver.execute_script("window.scrollTo(0, 0);")
     rental_PickUpTimeButton = driver.find_element_by_xpath("//*[@class='SearchEngine__pickupDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")
     rental_PickUpTimeButton.click()
     time.sleep(0.5)
     #rental_PickUpTimeSearch = """ "//*[contains(text(), '""" + str(SearchPickUpTime) + """')]" """
-    rental_PickUpTime1 = driver.find_element_by_xpath("//*[contains(text(), '" + (SearchPickUpTime) +"')]")
+    rental_PickUpTime1 = driver.find_element_by_xpath("//*[contains(text(), '" + (SearchPickUpTime1) +"')]")
     rental_PickUpTime1.click()
     time.sleep(1)
 
@@ -161,53 +161,14 @@ for SearchPickUpTime in SearchPickUpTime:
     time.sleep(2)
     offers3 = driver.find_elements_by_xpath("//*[@class='OfferList__gridItem']")
 
-    for result in offers3:
-        car_type_element = result.find_element_by_class_name("OfferTile__descriptionTitle")
-        car_type = car_type_element.text
-
-        car_description_element = result.find_element_by_class_name("OfferTile__descriptionText")
-        car_description = car_description_element.text
-
-        car_price_element = result.find_element_by_class_name("OfferTile__offerPriceNormal")
-        car_price = car_price_element.text
-
-        mileage_element = result.find_element_by_class_name("CheckList__checkmarkTitle")
-        mileage = mileage_element.text
-
-        pickup_date_element = result.find_element_by_xpath(
-            "/html/body/div/div[1]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[1]/div[1]/div[2]/div[1]/div/div[1]/div/span")
-        pickup_date = pickup_date_element.text
-
-        pickup_time_element = result.find_element_by_xpath(
-            "/html/body/div/div[1]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[1]/div[1]/div[2]/div[1]/div/div[2]/div/span[1]")
-        pickup_time = pickup_time_element.text
-
-        dropoff_date_element = result.find_element_by_xpath(
-            "/html/body/div/div[1]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[1]/div[1]/div[2]/div[2]/div/div[1]/div/span")
-        dropoff_date = dropoff_date_element.text
-
-        dropoff_time_element = result.find_element_by_xpath(
-            "/html/body/div/div[1]/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[1]/div[1]/div[2]/div[2]/div/div[2]/div/span[1]")
-        dropoff_time = dropoff_time_element.text
-
-        bookingclass_element = result.find_element_by_class_name("OfferTile__wrapper")
-        bookingclass = bookingclass_element.get_attribute("class")
-
-        data.append(
-            {"cartype": car_type, "cardescription": car_description, "price": car_price[1:-6], "mileage": mileage,
-             "pickupdate": pickup_date, "pickuptime": pickup_time, "dropoffdate": dropoff_date,
-             "dropofftime": dropoff_time, "bookingclass": bookingclass[-4:]})
-        df = pd.DataFrame(data)
-    print("Sucess: ", SearchPickUpTime, SearchDropOffTime)
-
-    for SearchDropOffTime in SearchDropOffTime:
+    for SearchDropOffTime1 in SearchDropOffTime:
         time.sleep(1)
         driver.execute_script("window.scrollTo(0, 0);")
         rental_DropOffTimeButton2 = driver.find_element_by_xpath("//*[@class='SearchEngine__returnDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")
         rental_DropOffTimeButton2.click()
         time.sleep(0.5)
             # rental_PickUpTimeSearch = """ "//*[contains(text(), '""" + str(SearchPickUpTime) + """')]" """
-        rental_DropoffTime2 = driver.find_element_by_xpath("//*[contains(text(), '" + str(SearchDropOffTime) +"')]")
+        rental_DropoffTime2 = driver.find_element_by_xpath("//*[contains(text(), '" + str(SearchDropOffTime1) +"')]")
         print(SearchDropOffTime)
         rental_DropoffTime2.click()
 
@@ -257,7 +218,7 @@ for SearchPickUpTime in SearchPickUpTime:
                      "pickupdate": pickup_date, "pickuptime": pickup_time, "dropoffdate": dropoff_date,
                      "dropofftime": dropoff_time, "bookingclass": bookingclass[-4:]})
             df = pd.DataFrame(data)
-        print("Sucess:", SearchPickUpTime, SearchDropOffTime)
+        print("Sucess:", SearchPickUpTime1, SearchDropOffTime1)
 
 
 df = pd.DataFrame(data)
