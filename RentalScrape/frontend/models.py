@@ -19,11 +19,11 @@ class SearchInput(models.Model):
     "no_past" are used for form validation. All search requests can be seen in this model."""
     Station = models.CharField(verbose_name='Rental station', max_length=120)
     Pickupdate = models.DateField(verbose_name="Pick-up Date", validators=[no_past])
-    Pickuptimestart = models.TimeField(verbose_name="Earliest Pick-Up time")
-    Pickuptimeend = models.TimeField(verbose_name="Latest Pick-Up time", help_text= "<br>Please be aware, that latest pick-up time should be <strong>no later than 2 hours</strong> after first pick-up time.")
+    Pickuptimestart = models.TimeField(verbose_name="Pick-Up time")
+    Pickuptimeend = models.TimeField(verbose_name="Latest Pick-Up time", default="08:00:00", help_text= "<br>Please be aware, that latest pick-up time should be <strong>no later than 2 hours</strong> after first pick-up time.")
     Dropoffdate = models.DateField(verbose_name="Drop-off Date")
-    Dropofftimestart = models.TimeField(verbose_name="Earliest Drop-off time")
-    Dropofftimeend = models.TimeField(verbose_name="Latest Drop-Off time", help_text= "<br>Please be aware, that latest drop-off time should be <strong>no later than 2 hours</strong> after first drop-off time.")
+    Dropofftimestart = models.TimeField(verbose_name="Drop-off time")
+    Dropofftimeend = models.TimeField(verbose_name="Latest Drop-Off time", default="08:00:00", help_text= "<br>Please be aware, that latest drop-off time should be <strong>no later than 2 hours</strong> after first drop-off time.")
 
 
 class Offer(models.Model):

@@ -1,6 +1,13 @@
 import sqlite3 as sql
 import datetime as datetime
 
+def convertTuple(tup):
+    str =  ''.join(tup)
+    return str
+
+
+""" -- CREATING PICKUPTIME LIST -- """
+
 conn = sql.connect('../db.sqlite3')
 cursor1 = conn.cursor()
 accesspickuptime = ("SELECT substr(pickuptimestart,1,5) FROM frontend_searchinput ORDER BY id DESC LIMIT 1")
@@ -8,10 +15,6 @@ cursor1.execute(accesspickuptime)
 pickuptimestart_tuple = cursor1.fetchone()
 cursor1.close()
 """Connect to sqlite table and fetch pickuptime as tuple"""
-
-def convertTuple(tup):
-    str =  ''.join(tup)
-    return str
 
 pickuptimestart_str = convertTuple(pickuptimestart_tuple)
 """Convert tuple into string"""
@@ -45,8 +48,7 @@ print("Pickuptimes:")
 print(pickuptimes)
 
 
-
-""" SIMILAR PROCEEDING FOR CREATING DROPOFF TIMES"""
+""" -- CREATING DROPOFFTIME LIST -- """
 
 conn = sql.connect('../db.sqlite3')
 cursor2 = conn.cursor()
@@ -55,10 +57,6 @@ cursor2.execute(accessdropofftime)
 dropofftimestart_tuple = cursor2.fetchone()
 cursor2.close()
 """Connect to sqlite table and fetch dropofftime as tuple"""
-
-def convertTuple(tup):
-    str =  ''.join(tup)
-    return str
 
 dropofftimestart_str = convertTuple(dropofftimestart_tuple)
 """Convert tuple into string"""
@@ -90,3 +88,19 @@ dropofftimes.append(dropofftime120_str)
 
 print("Dropofftimes:")
 print(dropofftimes)
+
+""" -- DEFINING STATION -- """
+
+conn = sql.connect('../db.sqlite3')
+cursor3 = conn.cursor()
+pullstation = ("SELECT station FROM frontend_searchinput ORDER BY id DESC LIMIT 1")
+cursor3.execute(pullstation)
+pullstation_tuple = cursor3.fetchone()
+cursor3.close()
+"""Connect to sqlite table and fetch station as tuple"""
+
+station_str = convertTuple(pullstation_tuple)
+"""Convert tuple into string"""
+
+print("Station:")
+print(station_str)
