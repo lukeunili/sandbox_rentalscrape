@@ -1,5 +1,3 @@
-import sqlite3 as sql
-import datetime as datetime
 
 def convertTuple(tup):
     str =  ''.join(tup)

@@ -43,11 +43,12 @@ def OfferList(httprequest, *args, **kwargs):
     """This view renders the objects out of the offer model
     (meaning the scraped SIXT-rates) for the user to
     display at /results"""
-    allOffers = Offer.objects.all()
+    allOffers = Offer.objects.all().order_by('price')
     context = {
         "allOffers": allOffers,
         "title": "All offers",
         }
 
     return render(httprequest, "results.html", context)
+
 

@@ -54,7 +54,7 @@ else:
     #rental_PickupDateArrow.click()
     print("failure")
 
-rental_PickUpDate = driver.find_element_by_css_selector("div[aria-label='Fr. 18. Dez 2020']")
+rental_PickUpDate = driver.find_element_by_css_selector("div[aria-label='Do 17. Dez 2020']")
 
 rental_PickUpDate.click()
 time.sleep(0.5)
