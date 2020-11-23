@@ -15,6 +15,10 @@ TIME_CHOICES_FIRST = [(dt.time(hour=x), '{:02d}:00'.format(x)) for x in range(8,
 TIME_CHOICES_LAST = [(dt.time(hour=x), '{:02d}:00'.format(x)) for x in range(9, 21)] + [(dt.time(hour=x), '{:02d}:30'.format(x)) for x in range(8, 20)]
 """Generating the Time Choices that will be shown in the Drop-Down list for pickup- and dropofftimes"""
 
+TIME_CHOICES_FIRST_HARD = (
+    ("08:00", "08:00 - 10:00"),
+    ("08:30", "08:30 - 10:30")
+)
 
 TIME_CHOICES_FIRST.sort()
 TIME_CHOICES_LAST.sort()
@@ -41,8 +45,8 @@ class SearchForm2(forms.ModelForm):
             'Station': forms.Select(choices=STATION_CHOICE),
             'Pickupdate': DateInput,
             'Dropoffdate': DateInput,
-            'Pickuptimestart': forms.Select(choices=TIME_CHOICES_FIRST),
+            'Pickuptimestart': forms.Select(choices=TIME_CHOICES_FIRST_HARD),
             'Pickuptimeend': forms.Select(choices=TIME_CHOICES_LAST),
-            'Dropofftimestart': forms.Select(choices=TIME_CHOICES_FIRST),
+            'Dropofftimestart': forms.Select(choices=TIME_CHOICES_FIRST_HARD),
             'Dropofftimeend': forms.Select(choices=TIME_CHOICES_LAST),
         }
