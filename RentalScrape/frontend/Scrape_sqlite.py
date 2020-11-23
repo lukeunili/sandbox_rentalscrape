@@ -33,8 +33,8 @@ pickuptime_time = datetime.datetime.strptime(pickuptimestart_str, "%H:%M")
 pickuptime0 = pickuptime_time
 pickuptime30 = pickuptime_time + datetime.timedelta(hours=0, minutes=30, seconds=0)
 pickuptime60 = pickuptime_time + datetime.timedelta(hours=1, minutes=00, seconds=0)
-pickuptime90 = pickuptime_time + datetime.timedelta(hours=1, minutes=30, seconds=0)
-pickuptime120 = pickuptime_time + datetime.timedelta(hours=2, minutes=00, seconds=0)
+#pickuptime90 = pickuptime_time + datetime.timedelta(hours=1, minutes=30, seconds=0)
+#pickuptime120 = pickuptime_time + datetime.timedelta(hours=2, minutes=00, seconds=0)
 """Add hr:mm to first pickuptime to create 2 hr window"""
 
 pickuptimes = []
@@ -46,10 +46,10 @@ pickuptime30_str = pickuptime30.strftime("%H:%M")
 pickuptimes.append(pickuptime30_str)
 pickuptime60_str = pickuptime60.strftime("%H:%M")
 pickuptimes.append(pickuptime60_str)
-pickuptime90_str = pickuptime90.strftime("%H:%M")
-pickuptimes.append(pickuptime90_str)
-pickuptime120_str = pickuptime120.strftime("%H:%M")
-pickuptimes.append(pickuptime120_str)
+#pickuptime90_str = pickuptime90.strftime("%H:%M")
+#pickuptimes.append(pickuptime90_str)
+#pickuptime120_str = pickuptime120.strftime("%H:%M")
+#pickuptimes.append(pickuptime120_str)
 """Append all possible pickuptimes to list"""
 
 print("Pickuptimes:")
@@ -75,8 +75,8 @@ dropofftime_time = datetime.datetime.strptime(dropofftimestart_str, "%H:%M")
 dropofftime0 = dropofftime_time
 dropofftime30 = dropofftime_time + datetime.timedelta(hours=0, minutes=30, seconds=0)
 dropofftime60 = dropofftime_time + datetime.timedelta(hours=1, minutes=00, seconds=0)
-dropofftime90 = dropofftime_time + datetime.timedelta(hours=1, minutes=30, seconds=0)
-dropofftime120 = dropofftime_time + datetime.timedelta(hours=2, minutes=00, seconds=0)
+#dropofftime90 = dropofftime_time + datetime.timedelta(hours=1, minutes=30, seconds=0)
+#dropofftime120 = dropofftime_time + datetime.timedelta(hours=2, minutes=00, seconds=0)
 """Add hr:mm to first dropofftime to create 2 hr window"""
 
 dropofftimes = []
@@ -88,10 +88,10 @@ dropofftime30_str = dropofftime30.strftime("%H:%M")
 dropofftimes.append(dropofftime30_str)
 dropofftime60_str = dropofftime60.strftime("%H:%M")
 dropofftimes.append(dropofftime60_str)
-dropofftime90_str = dropofftime90.strftime("%H:%M")
-dropofftimes.append(dropofftime90_str)
-dropofftime120_str = dropofftime120.strftime("%H:%M")
-dropofftimes.append(dropofftime120_str)
+#dropofftime90_str = dropofftime90.strftime("%H:%M")
+#dropofftimes.append(dropofftime90_str)
+#dropofftime120_str = dropofftime120.strftime("%H:%M")
+#dropofftimes.append(dropofftime120_str)
 """Append all possible dropofftimes to list"""
 
 print("Dropofftimes:")
@@ -162,7 +162,7 @@ else:
     #rental_PickupDateArrow.click()
     print("failure")
 
-rental_PickUpDate = driver.find_element_by_css_selector("div[aria-label='Fr. 18. Dez 2020']")
+rental_PickUpDate = driver.find_element_by_css_selector("div[aria-label='Do. 17. Dez 2020']")
 rental_PickUpDate.click()
 time.sleep(0.5)
 # choose drop off date
@@ -258,11 +258,11 @@ for SearchPickUpTimes in pickuptimes:
     time.sleep(1)
 
     # scroll until the end of the website
-    driver.execute_script(
-        "window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
+    #driver.execute_script(
+    #    "window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
 
-    time.sleep(2)
-    offers3 = driver.find_elements_by_xpath("//*[@class='OfferList__gridItem']")
+    #time.sleep(2)
+    #offers3 = driver.find_elements_by_xpath("//*[@class='OfferList__gridItem']")
 
     for SearchDropOffTime in dropofftimes:
         time.sleep(1)
@@ -272,11 +272,7 @@ for SearchPickUpTimes in pickuptimes:
         time.sleep(0.5)
             # rental_PickUpTimeSearch = """ "//*[contains(text(), '""" + str(SearchPickUpTime) + """')]" """
         rental_dropofftimes = driver.find_element_by_xpath("//*[contains(text(), '" + str(SearchDropOffTime) +"')]")
-        print(dropofftimes)
         rental_dropofftimes.click()
-
-
-
         time.sleep(1)
 
         # scroll until the end of the website
