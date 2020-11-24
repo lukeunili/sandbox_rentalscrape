@@ -155,3 +155,20 @@ dropoffdate_date = datetime.datetime.strptime(dropoffdate_str, "%Y-%m-%d")
 dropoffdate_adbY = dropoffdate_date.strftime("%a. %d. %b %Y")
 print("Drop-off date:")
 print(dropoffdate_adbY)
+
+""" -- DEFINING SEARCHID -- """
+
+conn = sql.connect('../db.sqlite3')
+cursor6 = conn.cursor()
+accesssearchid = ("SELECT id FROM frontend_searchinput ORDER BY id DESC LIMIT 1")
+cursor6.execute(accesssearchid)
+searchid_tuple = cursor6.fetchone()
+cursor6.close()
+"""Connect to sqlite table and fetch searchid as tuple"""
+
+searchid_int = sum(searchid_tuple)
+"""Convert tuple into integer"""
+
+print("Search ID:")
+print(searchid_int)
+
