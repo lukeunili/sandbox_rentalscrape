@@ -9,6 +9,28 @@ import sqlite3 as sql
 import datetime as datetime
 
 
+
+
+
+# define the url what will be open
+urlpage = 'https://www.sixt.at/'
+print(urlpage)
+
+# define chromedriver to execute headless, incl. window size
+WINDOW_SIZE = "1920,1080"
+chrome_options = Options()
+#chrome_options.add_argument("--headless")
+chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
+
+# run Chrome webdriver from executable path of your choice
+driver = webdriver.Chrome(options=chrome_options)
+
+
+# get web page
+driver.get(urlpage)
+
+#time.sleep(2)
+
 def convertTuple(tup):
     str =  ''.join(tup)
     return str
@@ -113,27 +135,8 @@ station_str = convertTuple(pullstation_tuple)
 print("Station:")
 print(station_str)
 
+time.sleep(2)
 
-# define the url what will be open
-urlpage = 'https://www.sixt.at/'
-print(urlpage)
-
-# define chromedriver to execute headless, incl. window size
-WINDOW_SIZE = "1920,1080"
-chrome_options = Options()
-#chrome_options.add_argument("--headless")
-chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
-
-# run Chrome webdriver from executable path of your choice
-driver = webdriver.Chrome(options=chrome_options)
-
-#time.sleep(2)
-
-
-
-# get web page
-driver.get(urlpage)
-time.sleep(5)
 # click cookie button
 cookie_button = driver.find_element_by_xpath("/html/body/div/div[1]/div[5]/div/div/div[2]/div/div/div")
 cookie_button.click()
@@ -142,7 +145,7 @@ time.sleep(1)
 RentalStationPicker = driver.find_element_by_id("pickupStation")
 RentalStationPicker.click()
 time.sleep(1)
-RentalStationPicker.send_keys("Muenchen Flughafen")
+RentalStationPicker.send_keys(str(station_str))
 time.sleep(4)
 rental_station_confirm = driver.find_element_by_xpath("//div[contains(@class, 'StationList__title')]")
 rental_station_confirm.click()

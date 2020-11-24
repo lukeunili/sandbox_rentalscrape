@@ -6,7 +6,8 @@ from django.core.exceptions import ValidationError
 
 STATION_CHOICE = (
     ("Muenchen Flughafen", "Muenchen Flughafen"),
-    ("Wien-Schwechat Flughafen", "Wien-Schwechat Flughafen")
+    ("Wien-Schwechat Flughafen", "Wien-Schwechat Flughafen"),
+    ("Solln", "Solln")
 )
 """Generating list of available SIXT Stations"""
 
