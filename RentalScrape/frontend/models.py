@@ -38,5 +38,5 @@ class Offer(models.Model):
     dropofftime = models.TimeField()
     bookingclass = models.CharField(max_length=4)
     cardescription = models.CharField(max_length=40)
-
+    searchid = models.CharField(max_length=10)
 

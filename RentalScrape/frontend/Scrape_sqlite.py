@@ -135,10 +135,9 @@ station_str = convertTuple(pullstation_tuple)
 print("Station:")
 print(station_str)
 
-
 """ -- DEFINING PICKUPDATE -- """
 
-locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
+locale.setlocale(locale.LC_ALL, 'de_DE')
 """Set local settings to use german days and months"""
 
 conn = sql.connect('../db.sqlite3')
@@ -162,7 +161,7 @@ print(pickupdate_adbY)
 
 """ -- DEFINING DROPOFFDATE -- """
 
-locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
+locale.setlocale(locale.LC_ALL, 'de_DE')
 """Set local settings to use german days and months"""
 
 conn = sql.connect('../db.sqlite3')
@@ -203,13 +202,14 @@ print(searchid_int)
 
 """ ------------------------------------------------------------------------------------------- """
 
-time.sleep(2)
+time.sleep(3)
 
-# click cookie button
+""" -- Confirm the Cockie Settings of Sixt -- """
 cookie_button = driver.find_element_by_xpath("/html/body/div/div[1]/div[5]/div/div/div[2]/div/div/div")
 cookie_button.click()
 time.sleep(1)
-# click and enter text into rental station button
+
+""" -- Click and enter text into rental station field -- """
 RentalStationPicker = driver.find_element_by_id("pickupStation")
 RentalStationPicker.click()
 time.sleep(1)
@@ -218,7 +218,9 @@ time.sleep(4)
 rental_station_confirm = driver.find_element_by_xpath("//div[contains(@class, 'StationList__title')]")
 rental_station_confirm.click()
 time.sleep(1)
-# click pick up date
+
+""" -- Choose and click pick up date --- """
+
 rental_PickUpDateButton = driver.find_element_by_xpath("//div[@class='DateButton__horizontal DateButton__wrapper']/span[@class='DateButton__date']")
 rental_PickUpDateButton.click()
 # choose pick up date 15.01.2021
@@ -226,18 +228,19 @@ time.sleep(2)
 
 #rental_PickupDateArrow = driver.find_element_by_css_selector("div[aria-label='Next Month']")
 
-# IF to check, if the pick up date is displayed on the website
+""" -- IF to check, if the pick up date is displayed on the website -- """
+
 if driver.find_element_by_css_selector("div[aria-label='Fr. 18. Dez 2020']").is_displayed():
     print('Pickup Date: Success')
 else:
     #rental_PickupDateArrow.click()
     print("failure")
 
-rental_PickUpDate = driver.find_element_by_css_selector("div[aria-label='Do. 17. Dez 2020']")
+rental_PickUpDate = driver.find_element_by_css_selector("div[aria-label='" + pickupdate_adbY + "']")
 rental_PickUpDate.click()
 time.sleep(0.5)
 # choose drop off date
-rental_DropOffDate = driver.find_element_by_css_selector("div[aria-label='Mo. 21. Dez 2020']")
+rental_DropOffDate = driver.find_element_by_css_selector("div[aria-label='" + dropoffdate_adbY + "']")
 rental_DropOffDate.click()
 
 
@@ -271,7 +274,7 @@ time.sleep(2)
 
 
 # scroll until the end of the website
-driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
+#driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
 time.sleep(2)
 # defines all possible rental offers at the specific station and certain dates
 offers = driver.find_elements_by_xpath("//*[@class='OfferList__gridItem']")
@@ -383,11 +386,17 @@ for SearchPickUpTimes in pickuptimes:
             bookingclass_element = result.find_element_by_class_name("OfferTile__wrapper")
             bookingclass = bookingclass_element.get_attribute("class")
 
+
+
             data.append(
                     {"cartype": car_type, "cardescription": car_description, "price": car_price[1:-6], "mileage": mileage,
                      "pickupdate": pickup_date, "pickuptime": pickup_time, "dropoffdate": dropoff_date,
-                     "dropofftime": dropoff_time, "bookingclass": bookingclass[-4:]})
+                     "dropofftime": dropoff_time, "bookingclass": bookingclass[-4:], "searchid": searchid_int})
             df = pd.DataFrame(data)
+
+            conn = sql.connect('../db.sqlite3')
+            cursor = conn.cursor()
+            df.to_sql('frontend_offer', conn, if_exists='replace', index_label="id")
         print("Sucess:", SearchPickUpTimes, SearchDropOffTime)
 
 
@@ -397,7 +406,7 @@ df.sort_values(by='price', ascending=True, ignore_index=True)
 print(df)
 
 # write to sqlite3
-conn = sql.connect('../db.sqlite3')
-cursor = conn.cursor()
-df.to_sql('frontend_offer', conn, if_exists = 'replace', index_label = "id")
+#conn = sql.connect('../db.sqlite3')
+#cursor = conn.cursor()
+#df.to_sql('frontend_offer', conn, if_exists = 'replace', index_label = "id")
 print('Finished writing to SQL database')
