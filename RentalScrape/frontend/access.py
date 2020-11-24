@@ -1,3 +1,7 @@
+import sqlite3 as sql
+import datetime as datetime
+import locale
+
 
 def convertTuple(tup):
     str =  ''.join(tup)
@@ -102,3 +106,52 @@ station_str = convertTuple(pullstation_tuple)
 
 print("Station:")
 print(station_str)
+
+
+
+""" -- DEFINING PICKUPDATE -- """
+
+locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
+"""Set local settings to use german days and months"""
+
+conn = sql.connect('../db.sqlite3')
+cursor4 = conn.cursor()
+accesspickupdate = ("SELECT pickupdate FROM frontend_searchinput ORDER BY id DESC LIMIT 1")
+cursor4.execute(accesspickupdate)
+pickupdate_tuple = cursor4.fetchone()
+cursor4.close()
+"""Connect to sqlite table and fetch pickupdate as tuple"""
+
+pickupdate_str = convertTuple(pickupdate_tuple)
+"""Convert tuple into string"""
+
+pickupdate_date = datetime.datetime.strptime(pickupdate_str, "%Y-%m-%d")
+"""Convert string into datetime format"""
+
+pickupdate_adbY = pickupdate_date.strftime("%a. %d. %b %Y")
+print("Pick-up date:")
+print(pickupdate_adbY)
+
+
+""" -- DEFINING DROPOFFDATE -- """
+
+locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
+"""Set local settings to use german days and months"""
+
+conn = sql.connect('../db.sqlite3')
+cursor5 = conn.cursor()
+accessdropoffdate = ("SELECT dropoffdate FROM frontend_searchinput ORDER BY id DESC LIMIT 1")
+cursor5.execute(accessdropoffdate)
+dropoffdate_tuple = cursor5.fetchone()
+cursor5.close()
+"""Connect to sqlite table and fetch dropoffdate as tuple"""
+
+dropoffdate_str = convertTuple(dropoffdate_tuple)
+"""Convert tuple into string"""
+
+dropoffdate_date = datetime.datetime.strptime(dropoffdate_str, "%Y-%m-%d")
+"""Convert string into datetime format"""
+
+dropoffdate_adbY = dropoffdate_date.strftime("%a. %d. %b %Y")
+print("Drop-off date:")
+print(dropoffdate_adbY)
