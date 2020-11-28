@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import SearchForm2
 from .models import Offer
+
 
 
 # Create your views here.
@@ -15,12 +16,19 @@ def QueryCreateView(httprequest, *args, **kwargs):
     if search_form.is_valid():
         search_form.save()
         search_form = SearchForm2()
+        #from .Scrape_sqlite import Scrape
+        #Scrape()
+        return redirect('/loading/')
+
 
     context = {
         "form": search_form,
     }
 
+
     return render(httprequest, "home.html", context)
+
+
 
 
 def aboutus(httprequest):
@@ -50,5 +58,12 @@ def OfferList(httprequest, *args, **kwargs):
         }
 
     return render(httprequest, "results.html", context)
+
+
+
+
+
+
+
 
 

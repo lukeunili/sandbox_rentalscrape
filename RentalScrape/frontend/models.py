@@ -39,4 +39,5 @@ class Offer(models.Model):
     bookingclass = models.CharField(max_length=4)
     cardescription = models.CharField(max_length=40)
     searchid = models.CharField(max_length=10)
+    #coutrycode = models.CharField(max_length=2)
 
