@@ -1,5 +1,6 @@
 from pandas import DataFrame
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 import time
 import pandas as pd
 from pandas import DataFrame
@@ -10,8 +11,10 @@ from pandas import DataFrame
 urlpage = 'https://www.sixt.de/mietwagen/deutschland/bayern/#/'
 print(urlpage)
 # run Chrome webdriver from executable path of your choice
-driver = webdriver.Chrome()
 
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+driver = webdriver.Chrome(options=chrome_options)
 #driver.set_window_size(800, 2000)
 time.sleep(2)
 #size = driver.get_window_size()
@@ -34,11 +37,11 @@ Map.click()
 
 time.sleep(2)
 
-StationList = driver.find_elements_by_xpath("//*[@class='content-template']")
+StationList = driver.find_elements_by_class_name('inn')
 data = []
 for result in StationList:
 
-    StationName = result.find_element_by_xpath("//*[@class='content-template']/div[2]/div/div/div")
+    StationName = result.get_attribute('textContent')
     Station_Name = StationName.text
 
     #OpeningHours = result.find_element_by_class_name("station-open-hours")

@@ -16,8 +16,8 @@ def QueryCreateView(httprequest, *args, **kwargs):
     if search_form.is_valid():
         search_form.save()
         search_form = SearchForm2()
-        #from .Scrape_sqlite import Scrape
-        #Scrape()
+        from .Scrape_sqlite import Scrape
+        Scrape()
         return redirect('/loading/')
 
 
