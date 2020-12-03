@@ -8,6 +8,9 @@ import pandas as pd
 import sqlite3 as sql
 import datetime as datetime
 import locale
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import os
 
 """ IMPORTANT: SQL-PATHS HAVE BEEN EDITED AND ARE NOT USABLE IN LOCAL RUN """
@@ -208,7 +211,7 @@ class Scrape:
     time.sleep(3)
 
     """ -- Confirm the Cockie Settings of Sixt -- """
-    cookie_button = driver.find_element_by_xpath("/html/body/div/div[1]/div[5]/div/div/div[2]/div/div/div")
+    cookie_button = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div[1]/div[5]/div/div/div[2]/div/div/div")))
     cookie_button.click()
     time.sleep(1)
 

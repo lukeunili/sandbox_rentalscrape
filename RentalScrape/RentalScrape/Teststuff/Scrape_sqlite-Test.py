@@ -8,6 +8,9 @@ import pandas as pd
 import sqlite3 as sql
 import datetime as datetime
 import locale
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import os
 
 """ IMPORTANT: SQL-PATHS HAVE BEEN EDITED AND ARE NOT USABLE IN LOCAL RUN """
@@ -41,7 +44,7 @@ class Scrape:
 
     """ -- CREATING PICKUPTIME LIST -- """
 
-    conn = sql.connect('../db.sqlite3')
+    conn = sql.connect('/Users/johannes/PycharmProjects/sandbox_rentalscrape/RentalScrape/db.sqlite3')
     cursor1 = conn.cursor()
     accesspickuptime = ("SELECT substr(pickuptimestart,1,5) FROM frontend_searchinput ORDER BY id DESC LIMIT 1")
     cursor1.execute(accesspickuptime)
@@ -83,7 +86,7 @@ class Scrape:
 
     """ -- CREATING DROPOFFTIME LIST -- """
 
-    conn = sql.connect('../db.sqlite3')
+    conn = sql.connect('/Users/johannes/PycharmProjects/sandbox_rentalscrape/RentalScrape/db.sqlite3')
     cursor2 = conn.cursor()
     accessdropofftime = ("SELECT substr(dropofftimestart,1,5) FROM frontend_searchinput ORDER BY id DESC LIMIT 1")
     cursor2.execute(accessdropofftime)
@@ -124,7 +127,7 @@ class Scrape:
 
     """ -- DEFINING STATION -- """
 
-    conn = sql.connect('../db.sqlite3')
+    conn = sql.connect('/Users/johannes/PycharmProjects/sandbox_rentalscrape/RentalScrape/db.sqlite3')
     cursor3 = conn.cursor()
     pullstation = ("SELECT station FROM frontend_searchinput ORDER BY id DESC LIMIT 1")
     cursor3.execute(pullstation)
@@ -143,7 +146,7 @@ class Scrape:
     locale.setlocale(locale.LC_ALL, 'de_DE')
     """Set local settings to use german days and months"""
 
-    conn = sql.connect('../db.sqlite3')
+    conn = sql.connect('/Users/johannes/PycharmProjects/sandbox_rentalscrape/RentalScrape/db.sqlite3')
     cursor4 = conn.cursor()
     accesspickupdate = ("SELECT pickupdate FROM frontend_searchinput ORDER BY id DESC LIMIT 1")
     cursor4.execute(accesspickupdate)
@@ -167,7 +170,7 @@ class Scrape:
     locale.setlocale(locale.LC_ALL, 'de_DE')
     """Set local settings to use german days and months"""
 
-    conn = sql.connect('../db.sqlite3')
+    conn = sql.connect('/Users/johannes/PycharmProjects/sandbox_rentalscrape/RentalScrape/db.sqlite3')
     cursor5 = conn.cursor()
     accessdropoffdate = ("SELECT dropoffdate FROM frontend_searchinput ORDER BY id DESC LIMIT 1")
     cursor5.execute(accessdropoffdate)
@@ -188,7 +191,7 @@ class Scrape:
 
     """ -- DEFINING SEARCHID -- """
 
-    conn = sql.connect('../db.sqlite3')
+    conn = sql.connect('/Users/johannes/PycharmProjects/sandbox_rentalscrape/RentalScrape/db.sqlite3')
     cursor6 = conn.cursor()
     accesssearchid = ("SELECT id FROM frontend_searchinput ORDER BY id DESC LIMIT 1")
     cursor6.execute(accesssearchid)
@@ -208,26 +211,28 @@ class Scrape:
     time.sleep(3)
 
     """ -- Confirm the Cockie Settings of Sixt -- """
-    cookie_button = driver.find_element_by_xpath("/html/body/div/div[1]/div[5]/div/div/div[2]/div/div/div")
+    cookie_button = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.XPATH, "/html/body/div/div[1]/div[5]/div/div/div[2]/div/div/div")))
     cookie_button.click()
     time.sleep(1)
 
     """ -- Click and enter text into rental station field -- """
-    RentalStationPicker = driver.find_element_by_id("pickupStation")
+    RentalStationPicker = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.ID, "pickupStation")))
     RentalStationPicker.click()
     time.sleep(1)
     RentalStationPicker.send_keys(str(station_str))
-    time.sleep(4)
-    rental_station_confirm = driver.find_element_by_xpath("//div[contains(@class, 'StationList__title')]")
+    rental_station_confirm = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.XPATH, "//div[contains(@class, 'StationList__title')]")))
     rental_station_confirm.click()
-    time.sleep(1)
 
     """ -- Choose and click pick up date --- """
 
-    rental_PickUpDateButton = driver.find_element_by_xpath("//div[@class='DateButton__horizontal DateButton__wrapper']/span[@class='DateButton__date']")
+    rental_PickUpDateButton = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.XPATH, "//div[@class='DateButton__horizontal DateButton__wrapper']/span[@class='DateButton__date']")))
     rental_PickUpDateButton.click()
     # choose pick up date 15.01.2021
-    time.sleep(2)
+
 
     #rental_PickupDateArrow = driver.find_element_by_css_selector("div[aria-label='Next Month']")
 
@@ -248,11 +253,12 @@ class Scrape:
 
 
     # choose pick up time 13:30
-    time.sleep(0.5)
-    rental_PickUpTimeButton = driver.find_element_by_xpath("//*[@class='SearchEngine__pickupDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")
+    rental_PickUpTimeButton = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.XPATH, "//*[@class='SearchEngine__pickupDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")))
     rental_PickUpTimeButton.click()
     time.sleep(0.5)
-    rental_PickUpTime = driver.find_element_by_xpath("//*[contains(text(), '" + str(pickuptime30_str) +"')]")
+    rental_PickUpTime = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), '" + str(pickuptime30_str) +"')]")))
     driver.execute_script('arguments[0].scrollIntoView(true);', rental_PickUpTime)
     rental_PickUpTime.click()
 
@@ -395,13 +401,15 @@ class Scrape:
 
 
 
+
+
                 data.append(
                         {"cartype": car_type, "cardescription": car_description, "price": car_price[1:-6], "mileage": mileage,
                          "pickupdate": pickup_date, "pickuptime": pickup_time, "dropoffdate": dropoff_date,
                          "dropofftime": dropoff_time, "bookingclass": bookingclass[-4:], "searchid": searchid_int, "countrycode": countrycode})
                 df = pd.DataFrame(data)
 
-                conn = sql.connect('../db.sqlite3')
+                conn = sql.connect('/Users/johannes/PycharmProjects/sandbox_rentalscrape/RentalScrape/db.sqlite3')
                 cursor = conn.cursor()
                 df.to_sql('frontend_offer', conn, if_exists='replace', index_label="id")
             print("Sucess:", SearchPickUpTimes, SearchDropOffTime)
