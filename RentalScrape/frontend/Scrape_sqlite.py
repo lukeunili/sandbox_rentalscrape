@@ -29,7 +29,7 @@ class Scrape:
     chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
 
     # run Chrome webdriver from executable path of your choice
-    driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome()
 
 
     # get web page
@@ -407,7 +407,7 @@ class Scrape:
                 conn = sql.connect('db.sqlite3')
                 cursor = conn.cursor()
                 df.to_sql('frontend_offer', conn, if_exists='replace', index_label="id")
-            print("Sucess:", SearchPickUpTimes, SearchDropOffTime)
+            print("Success:", SearchPickUpTimes, SearchDropOffTime)
 
 
     df = pd.DataFrame(data)
