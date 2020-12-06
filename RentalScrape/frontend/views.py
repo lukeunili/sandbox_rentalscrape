@@ -10,30 +10,20 @@ from django.http import HttpResponseRedirect
 
 
 def QueryCreateView(httprequest, *args, **kwargs):
-    """View that displays SearchForm2 on /home and saves input
-    to SearchInput model for further processing.
-    In the future, this view should redirect to /loading and
-    trigger Scrape_sqlite.py after POST"""
+    """View that displays SearchForm2 on /home and saves input to SearchInput model for further processing.
+    In the future, this view should redirect to /loading and trigger Scrape_sqlite.py after POST"""
     search_form = SearchForm2(httprequest.POST or None)
     if search_form.is_valid():
         search_form.save()
         search_form = SearchForm2()
         return HttpResponseRedirect('loading/')
 
-
     context = {
         "form": search_form,
     }
 
-
     return render(httprequest, "home.html", context)
 
-
-
-
-def aboutus(httprequest):
-    """This view returns aboutus.html to /aboutus"""
-    return render(httprequest, "aboutus.html")
 
 def LoadingView(httprequest):
     """This view returns loading.html to /loading.
@@ -41,9 +31,14 @@ def LoadingView(httprequest):
     and should show as long as Scrape_sqlite.py is running.
     Once Scrape_sqlite.py finishes successfully, it should redirect to /results."""
 
+    from . import Scrape_sqlite
+    Scrape_sqlite()
+
     return render(httprequest, "loading.html")
-    from .Scrape_sqlite import Scrape
-    Scrape()
+
+def aboutus(httprequest):
+    """This view returns aboutus.html to /aboutus"""
+    return render(httprequest, "aboutus.html")
 
 
 def tipstricks(httprequest):
