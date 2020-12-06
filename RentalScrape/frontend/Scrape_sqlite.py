@@ -404,7 +404,7 @@ class Scrape:
                          "dropofftime": dropoff_time, "bookingclass": bookingclass[-4:], "searchid": searchid_int, "countrycode": countrycode})
                 df = pd.DataFrame(data)
 
-                conn = sql.connect('db.sqlite3')
+                conn = sql.connect('../db.sqlite3')
                 cursor = conn.cursor()
                 df.to_sql('frontend_offer', conn, if_exists='replace', index_label="id")
             print("Success:", SearchPickUpTimes, SearchDropOffTime)
