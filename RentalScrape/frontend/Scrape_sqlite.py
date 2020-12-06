@@ -44,7 +44,7 @@ class Scrape:
 
     """ -- CREATING PICKUPTIME LIST -- """
 
-    conn = sql.connect('db.sqlite3')
+    conn = sql.connect('../db.sqlite3')
     cursor1 = conn.cursor()
     accesspickuptime = ("SELECT substr(pickuptimestart,1,5) FROM frontend_searchinput ORDER BY id DESC LIMIT 1")
     cursor1.execute(accesspickuptime)
@@ -86,7 +86,7 @@ class Scrape:
 
     """ -- CREATING DROPOFFTIME LIST -- """
 
-    conn = sql.connect('db.sqlite3')
+    conn = sql.connect('../db.sqlite3')
     cursor2 = conn.cursor()
     accessdropofftime = ("SELECT substr(dropofftimestart,1,5) FROM frontend_searchinput ORDER BY id DESC LIMIT 1")
     cursor2.execute(accessdropofftime)
@@ -127,7 +127,7 @@ class Scrape:
 
     """ -- DEFINING STATION -- """
 
-    conn = sql.connect('db.sqlite3')
+    conn = sql.connect('../db.sqlite3')
     cursor3 = conn.cursor()
     pullstation = ("SELECT station FROM frontend_searchinput ORDER BY id DESC LIMIT 1")
     cursor3.execute(pullstation)
@@ -146,7 +146,7 @@ class Scrape:
     locale.setlocale(locale.LC_ALL, 'de_DE')
     """Set local settings to use german days and months"""
 
-    conn = sql.connect('db.sqlite3')
+    conn = sql.connect('../db.sqlite3')
     cursor4 = conn.cursor()
     accesspickupdate = ("SELECT pickupdate FROM frontend_searchinput ORDER BY id DESC LIMIT 1")
     cursor4.execute(accesspickupdate)
@@ -170,7 +170,7 @@ class Scrape:
     locale.setlocale(locale.LC_ALL, 'de_DE')
     """Set local settings to use german days and months"""
 
-    conn = sql.connect('db.sqlite3')
+    conn = sql.connect('../db.sqlite3')
     cursor5 = conn.cursor()
     accessdropoffdate = ("SELECT dropoffdate FROM frontend_searchinput ORDER BY id DESC LIMIT 1")
     cursor5.execute(accessdropoffdate)
@@ -191,7 +191,7 @@ class Scrape:
 
     """ -- DEFINING SEARCHID -- """
 
-    conn = sql.connect('db.sqlite3')
+    conn = sql.connect('../db.sqlite3')
     cursor6 = conn.cursor()
     accesssearchid = ("SELECT id FROM frontend_searchinput ORDER BY id DESC LIMIT 1")
     cursor6.execute(accesssearchid)
