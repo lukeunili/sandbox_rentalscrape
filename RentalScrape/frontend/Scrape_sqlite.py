@@ -336,6 +336,7 @@ class Scrape:
         time.sleep(0.5)
         #rental_PickUpTimeSearch = """ "//*[contains(text(), '""" + str(SearchPickUpTime) + """')]" """
         rental_pickuptimes = driver.find_element_by_xpath("//*[contains(text(), '" + (SearchPickUpTimes) +"')]")
+
         rental_pickuptimes.click()
         time.sleep(1)
 
@@ -354,6 +355,7 @@ class Scrape:
             time.sleep(0.5)
                 # rental_PickUpTimeSearch = """ "//*[contains(text(), '""" + str(SearchPickUpTime) + """')]" """
             rental_dropofftimes = driver.find_element_by_xpath("//*[contains(text(), '" + str(SearchDropOffTime) +"')]")
+            #driver.execute_script('arguments[0].scrollIntoView(true);', rental_dropofftimes)
             rental_dropofftimes.click()
             time.sleep(1)
 
