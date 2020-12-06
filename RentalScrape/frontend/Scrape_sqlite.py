@@ -11,6 +11,7 @@ import locale
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 import os
 
 """ IMPORTANT: SQL-PATHS HAVE BEEN EDITED AND ARE NOT USABLE IN LOCAL RUN """
@@ -208,7 +209,7 @@ class Scrape:
 
     """ ------------------------------------------------------------------------------------------- """
 
-    time.sleep(3)
+    #time.sleep(3)
 
     """ -- Confirm the Cockie Settings of Sixt -- """
     cookie_button = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div[1]/div[5]/div/div/div[2]/div/div/div")))
@@ -216,12 +217,14 @@ class Scrape:
     time.sleep(1)
 
     """ -- Click and enter text into rental station field -- """
-    RentalStationPicker = driver.find_element_by_id("pickupStation")
+    RentalStationPicker = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "pickupStation")))
+    #driver.find_element_by_id("pickupStation")
     RentalStationPicker.click()
     time.sleep(1)
     RentalStationPicker.send_keys(str(station_str))
-    time.sleep(4)
-    rental_station_confirm = driver.find_element_by_xpath("//div[contains(@class, 'StationList__title')]")
+    #time.sleep(4)
+    rental_station_confirm = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[contains(@class, 'StationList__title')]")))
+        #driver.find_element_by_xpath("//div[contains(@class, 'StationList__title')]")
     rental_station_confirm.click()
     time.sleep(1)
 
@@ -236,11 +239,11 @@ class Scrape:
 
     """ -- IF to check, if the pick up date is displayed on the website -- """
 
-    if driver.find_element_by_css_selector("div[aria-label='Fr. 18. Dez 2020']").is_displayed():
-        print('Pickup Date: Success')
-    else:
-        #rental_PickupDateArrow.click()
-        print("failure")
+    #if driver.find_element_by_css_selector("div[aria-label='Fr. 18. Dez 2020']").is_displayed():
+    #    print('Pickup Date: Success')
+    #else:
+    #    #rental_PickupDateArrow.click()
+    #    print("failure")
 
     rental_PickUpDate = driver.find_element_by_css_selector("div[aria-label='" + pickupdate_adbY + "']")
     rental_PickUpDate.click()
@@ -255,9 +258,17 @@ class Scrape:
     rental_PickUpTimeButton = driver.find_element_by_xpath("//*[@class='SearchEngine__pickupDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")
     rental_PickUpTimeButton.click()
     time.sleep(0.5)
-    rental_PickUpTime = driver.find_element_by_xpath("//*[contains(text(), '" + str(pickuptime30_str) + "')]")
-    driver.execute_script('arguments[0].scrollIntoView(true);', rental_PickUpTime)
-    rental_PickUpTime.click()
+
+    rental_PickUpTimer = driver.find_element_by_xpath("//*[contains(text(), '" + str(pickuptime30_str) + "')]")
+    #actions = ActionChains(driver)
+    #actions.move_to_element(rental_PickUpTimer).perform()
+    #scrollbar = driver.find_element_by_xpath("//*[@id='root']/div/div[1]/div[2]/div[1]/div/div/div/div[3]/div/span/div/div/div[2]/div/div")
+    #driver.execute_script("animate({scrollTop: '100px'})", scrollbar)
+    driver.execute_script("return arguments[0].scrollIntoView(true);", rental_PickUpTimer)
+    #driver.execute_script('arguments[0].moveToView(true);', rental_PickUpTimer)
+    time.sleep(0.5)
+    #rental_PickUpTime = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), '" + str(pickuptime30_str) + "')]")))
+    rental_PickUpTimer.click()
 
     print(str(pickuptime30_str))
 
@@ -268,25 +279,29 @@ class Scrape:
     rental_DropOffTimeButton = driver.find_element_by_xpath("//*[@class='SearchEngine__returnDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")
     rental_DropOffTimeButton.click()
     time.sleep(0.5)
-    rental_DropOffTime = driver.find_element_by_xpath("//*[contains(text(), '" + str(dropofftime30_str) + "')]")
-    driver.execute_script('arguments[0].scrollIntoView(true);', rental_DropOffTime)
-    rental_DropOffTime.click()
+
+    rental_DropOffTimer = driver.find_element_by_xpath("//*[contains(text(), '" + str(dropofftime30_str) + "')]")
+    driver.execute_script('arguments[0].scrollIntoView(true);', rental_DropOffTimer)
+    time.sleep(0.5)
+    #rental_DropOffTime = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), '" + str(dropofftime30_str) + "')]")))
+    rental_DropOffTimer.click()
 
     print(str(dropofftime30_str))
 
     # confirm the times and dates
-    time.sleep(1)
-    rental_ConfirmButton = driver.find_element_by_xpath("//div[contains(@class, 'SearchEngine__buttonWrapper')]")
+    #time.sleep(1)
+    rental_ConfirmButton = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[contains(@class, 'SearchEngine__buttonWrapper')]")))
+    #driver.find_element_by_xpath("//div[contains(@class, 'SearchEngine__buttonWrapper')]")
     rental_ConfirmButton.click()
     time.sleep(2)
 
 
     # scroll until the end of the website
     #driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
-    time.sleep(2)
+    #time.sleep(2)
     # defines all possible rental offers at the specific station and certain dates
-    offers = driver.find_elements_by_xpath("//*[@class='OfferList__gridItem']")
-    print('Number of results', len(offers))
+    #offers = driver.find_elements_by_xpath("//*[@class='OfferList__gridItem']")
+    #print('Number of results', len(offers))
 
     # create empty array to store data
     data = []
@@ -331,11 +346,13 @@ class Scrape:
 
     for SearchPickUpTimes in pickuptimes:
         driver.execute_script("window.scrollTo(0, 0);")
-        rental_PickUpTimeButton = driver.find_element_by_xpath("//*[@class='SearchEngine__pickupDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")
+        rental_PickUpTimeButton = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*[@class='SearchEngine__pickupDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")))
+        #driver.find_element_by_xpath("//*[@class='SearchEngine__pickupDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")
         rental_PickUpTimeButton.click()
         time.sleep(0.5)
         #rental_PickUpTimeSearch = """ "//*[contains(text(), '""" + str(SearchPickUpTime) + """')]" """
-        rental_pickuptimes = driver.find_element_by_xpath("//*[contains(text(), '" + (SearchPickUpTimes) +"')]")
+        rental_pickuptimes = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), '" + (SearchPickUpTimes) +"')]")))
+        #driver.find_element_by_xpath("//*[contains(text(), '" + (SearchPickUpTimes) +"')]")
 
         rental_pickuptimes.click()
         time.sleep(1)
@@ -348,13 +365,15 @@ class Scrape:
         #offers3 = driver.find_elements_by_xpath("//*[@class='OfferList__gridItem']")
 
         for SearchDropOffTime in dropofftimes:
-            time.sleep(1)
+            #time.sleep(1)
             driver.execute_script("window.scrollTo(0, 0);")
-            rental_DropOffTimeButton2 = driver.find_element_by_xpath("//*[@class='SearchEngine__returnDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")
+            rental_DropOffTimeButton2 = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*[@class='SearchEngine__returnDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")))
+            #driver.find_element_by_xpath("//*[@class='SearchEngine__returnDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")
             rental_DropOffTimeButton2.click()
             time.sleep(0.5)
                 # rental_PickUpTimeSearch = """ "//*[contains(text(), '""" + str(SearchPickUpTime) + """')]" """
-            rental_dropofftimes = driver.find_element_by_xpath("//*[contains(text(), '" + str(SearchDropOffTime) +"')]")
+            rental_dropofftimes = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), '" + str(SearchDropOffTime) +"')]")))
+            #driver.find_element_by_xpath("//*[contains(text(), '" + str(SearchDropOffTime) +"')]")
             #driver.execute_script('arguments[0].scrollIntoView(true);', rental_dropofftimes)
             rental_dropofftimes.click()
             time.sleep(1)
@@ -371,8 +390,11 @@ class Scrape:
                 car_description_element = result.find_element_by_class_name("OfferTile__descriptionText")
                 car_description = car_description_element.text
 
-                car_price_element = result.find_element_by_class_name("OfferTile__offerPriceNormal")
-                car_price = car_price_element.text
+                #car_price_element = result.find_element_by_class_name("OfferTile__offerPriceNormal")
+                #car_price = car_price_element.text
+
+                car_price_element = result.find_element_by_xpath("//div[@class='OfferTile__offerPriceTotal']")
+                car_price = car_type_element.text
 
                 mileage_element = result.find_element_by_class_name("CheckList__checkmarkTitle")
                 mileage = mileage_element.text
