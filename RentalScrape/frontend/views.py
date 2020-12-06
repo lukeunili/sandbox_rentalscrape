@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .forms import SearchForm2
 from .models import Offer
+from django.http import HttpResponseRedirect
+
 
 
 
@@ -16,9 +18,7 @@ def QueryCreateView(httprequest, *args, **kwargs):
     if search_form.is_valid():
         search_form.save()
         search_form = SearchForm2()
-        from .Scrape_sqlite import Scrape
-        Scrape()
-        return redirect('/loading/')
+        return HttpResponseRedirect('loading/')
 
 
     context = {
@@ -40,7 +40,11 @@ def LoadingView(httprequest):
     It should be triggered by the user submitting the /home form
     and should show as long as Scrape_sqlite.py is running.
     Once Scrape_sqlite.py finishes successfully, it should redirect to /results."""
+
     return render(httprequest, "loading.html")
+    from .Scrape_sqlite import Scrape
+    Scrape()
+
 
 def tipstricks(httprequest):
     """This view returns tipstricks.html to /tipstricks"""
