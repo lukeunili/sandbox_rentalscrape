@@ -1,17 +1,14 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .forms import SearchForm2
 from .models import Offer
 from django.http import HttpResponseRedirect
-
-
-
 
 # Create your views here.
 
 
 def QueryCreateView(httprequest, *args, **kwargs):
     """View that displays SearchForm2 on /home and saves input to SearchInput model for further processing.
-    In the future, this view should redirect to /loading and trigger Scrape_sqlite.py after POST"""
+    If form is submitted, Scrape_sqlite.py is triggered and user is redirected to /results after execution of script."""
     search_form = SearchForm2(httprequest.POST or None)
     if search_form.is_valid():
         search_form.save()
@@ -28,7 +25,8 @@ def QueryCreateView(httprequest, *args, **kwargs):
 
 
 def LoadingView(httprequest):
-    """This view returns loading.html to /loading.
+    """ ---- INACTIVE ----
+    This view returns loading.html to /loading.
     It should be triggered by the user submitting the /home form
     and should show as long as Scrape_sqlite.py is running.
     Once Scrape_sqlite.py finishes successfully, it should redirect to /results."""
@@ -48,16 +46,15 @@ def tipstricks(httprequest):
 def OfferList(httprequest, *args, **kwargs):
     """This view renders the objects out of the offer model
     (meaning the scraped SIXT-rates) for the user to
-    display at /results"""
+    display at /results, orderer ascending by price"""
 
-    allOffers = Offer.objects.all().order_by('price')
+    allOffers = Offer.objects.all().order_by('bookingclass', 'price')
     context = {
         "allOffers": allOffers,
         "title": "All offers",
         }
 
     return render(httprequest, "results.html", context)
-
 
 
 

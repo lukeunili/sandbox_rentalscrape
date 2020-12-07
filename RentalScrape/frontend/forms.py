@@ -1,7 +1,5 @@
 from django import forms
 from .models import SearchInput
-import datetime as dt
-from django.core.exceptions import ValidationError
 
 
 STATION_CHOICE = (
@@ -9,12 +7,8 @@ STATION_CHOICE = (
     ("Wien-Schwechat Flughafen", "Wien-Schwechat Flughafen"),
     ("Solln", "Solln")
 )
-"""Generating list of available SIXT Stations"""
+"""List of available SIXT Stations"""
 
-
-#TIME_CHOICES_FIRST = [(dt.time(hour=x), '{:02d}:00'.format(x)) for x in range(8, 19)] + [(dt.time(hour=x), '{:02d}:30'.format(x)) for x in range(8, 18)]
-#TIME_CHOICES_LAST = [(dt.time(hour=x), '{:02d}:00'.format(x)) for x in range(9, 21)] + [(dt.time(hour=x), '{:02d}:30'.format(x)) for x in range(8, 20)]
-#"""Generating the Time Choices that will be shown in the Drop-Down list for pickup- and dropofftimes"""
 
 TIME_CHOICES_FIRST_HARD = (
     ("08:00", "08:00 - 10:00"),
@@ -35,6 +29,8 @@ TIME_CHOICES_FIRST_HARD = (
     ("15:30", "15:30 - 17:30"),
     ("16:00", "16:00 - 18:00")
 )
+"""List of available Pick-Up times"""
+
 
 TIME_CHOICES_LAST_HARD = (
     ("08:00", "08:00 - 10:00"),
@@ -55,9 +51,7 @@ TIME_CHOICES_LAST_HARD = (
     ("15:30", "15:30 - 17:30"),
     ("16:00", "16:00 - 18:00")
 )
-#TIME_CHOICES_FIRST.sort()
-#TIME_CHOICES_LAST.sort()
-#"""Sorting the Time Choices in the right order, e.g. 08:00, 08:30, 09:00, .."""
+"""List of available Drop-Off times"""
 
 
 class TimeInput(forms.TimeInput):

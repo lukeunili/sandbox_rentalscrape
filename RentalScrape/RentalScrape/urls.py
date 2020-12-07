@@ -24,5 +24,5 @@ urlpatterns = [
     path('aboutus/', aboutus),
     path('tipstricks', tipstricks),
     path('results/', OfferList),
-    path('loading/', LoadingView)
+    path('loading/', LoadingView),
 ]
