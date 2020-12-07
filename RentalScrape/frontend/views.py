@@ -33,9 +33,6 @@ def LoadingView(httprequest):
     and should show as long as Scrape_sqlite.py is running.
     Once Scrape_sqlite.py finishes successfully, it should redirect to /results."""
 
-    from . import Scrape_sqlite
-    Scrape_sqlite()
-
     return render(httprequest, "loading.html")
 
 def aboutus(httprequest):
@@ -52,6 +49,10 @@ def OfferList(httprequest, *args, **kwargs):
     """This view renders the objects out of the offer model
     (meaning the scraped SIXT-rates) for the user to
     display at /results"""
+
+    from . import Scrape_sqlite
+    Scrape_sqlite()
+
     allOffers = Offer.objects.all().order_by('price')
     context = {
         "allOffers": allOffers,

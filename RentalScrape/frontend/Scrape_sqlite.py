@@ -390,11 +390,8 @@ class Scrape:
                 car_description_element = result.find_element_by_class_name("OfferTile__descriptionText")
                 car_description = car_description_element.text
 
-                #car_price_element = result.find_element_by_class_name("OfferTile__offerPriceNormal")
-                #car_price = car_price_element.text
-
-                car_price_element = result.find_element_by_xpath("//div[@class='OfferTile__offerPriceTotal']")
-                car_price = car_type_element.text
+                car_price_element = result.find_element_by_class_name("OfferTile__offerPriceTotal")
+                car_price = car_price_element.text
 
                 mileage_element = result.find_element_by_class_name("CheckList__checkmarkTitle")
                 mileage = mileage_element.text
