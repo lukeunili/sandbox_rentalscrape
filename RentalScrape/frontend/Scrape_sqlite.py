@@ -61,7 +61,7 @@ class Scrape:
 
     pickuptime0 = pickuptime_time
     pickuptime30 = pickuptime_time + datetime.timedelta(hours=0, minutes=30, seconds=0)
-    pickuptime60 = pickuptime_time + datetime.timedelta(hours=1, minutes=00, seconds=0)
+    #pickuptime60 = pickuptime_time + datetime.timedelta(hours=1, minutes=00, seconds=0)
     #pickuptime90 = pickuptime_time + datetime.timedelta(hours=1, minutes=30, seconds=0)
     #pickuptime120 = pickuptime_time + datetime.timedelta(hours=2, minutes=00, seconds=0)
     """Add hr:mm to first pickuptime to create 2 hr window"""
@@ -73,8 +73,8 @@ class Scrape:
     pickuptimes.append(pickuptime0_str)
     pickuptime30_str = pickuptime30.strftime("%H:%M")
     pickuptimes.append(pickuptime30_str)
-    pickuptime60_str = pickuptime60.strftime("%H:%M")
-    pickuptimes.append(pickuptime60_str)
+    #pickuptime60_str = pickuptime60.strftime("%H:%M")
+    #pickuptimes.append(pickuptime60_str)
     #pickuptime90_str = pickuptime90.strftime("%H:%M")
     #pickuptimes.append(pickuptime90_str)
     #pickuptime120_str = pickuptime120.strftime("%H:%M")
@@ -103,7 +103,7 @@ class Scrape:
 
     dropofftime0 = dropofftime_time
     dropofftime30 = dropofftime_time + datetime.timedelta(hours=0, minutes=30, seconds=0)
-    dropofftime60 = dropofftime_time + datetime.timedelta(hours=1, minutes=00, seconds=0)
+    #dropofftime60 = dropofftime_time + datetime.timedelta(hours=1, minutes=00, seconds=0)
     #dropofftime90 = dropofftime_time + datetime.timedelta(hours=1, minutes=30, seconds=0)
     #dropofftime120 = dropofftime_time + datetime.timedelta(hours=2, minutes=00, seconds=0)
     """Add hr:mm to first dropofftime to create 2 hr window"""
@@ -115,8 +115,8 @@ class Scrape:
     dropofftimes.append(dropofftime0_str)
     dropofftime30_str = dropofftime30.strftime("%H:%M")
     dropofftimes.append(dropofftime30_str)
-    dropofftime60_str = dropofftime60.strftime("%H:%M")
-    dropofftimes.append(dropofftime60_str)
+    #dropofftime60_str = dropofftime60.strftime("%H:%M")
+    #dropofftimes.append(dropofftime60_str)
     #dropofftime90_str = dropofftime90.strftime("%H:%M")
     #dropofftimes.append(dropofftime90_str)
     #dropofftime120_str = dropofftime120.strftime("%H:%M")
@@ -392,6 +392,8 @@ class Scrape:
 
                 car_price_element = result.find_element_by_class_name("OfferTile__offerPriceTotal")
                 car_price = car_price_element.text
+                car_price_num = float(str(car_price[1:-7].replace(',', '')))
+
 
                 mileage_element = result.find_element_by_class_name("CheckList__checkmarkTitle")
                 mileage = mileage_element.text
@@ -420,7 +422,7 @@ class Scrape:
 
 
                 data.append(
-                        {"cartype": car_type, "cardescription": car_description, "price": car_price[1:-6], "mileage": mileage,
+                        {"cartype": car_type, "cardescription": car_description, "price": car_price_num, "mileage": mileage,
                          "pickupdate": pickup_date, "pickuptime": pickup_time, "dropoffdate": dropoff_date,
                          "dropofftime": dropoff_time, "bookingclass": bookingclass[-4:], "searchid": searchid_int, "countrycode": countrycode})
                 df = pd.DataFrame(data)

@@ -18,7 +18,7 @@ def QueryCreateView(httprequest, *args, **kwargs):
         search_form = SearchForm2()
         from .Scrape_sqlite import Scrape
         Scrape()
-        return HttpResponseRedirect('loading/')
+        return HttpResponseRedirect('results/')
 
     context = {
         "form": search_form,
@@ -49,9 +49,6 @@ def OfferList(httprequest, *args, **kwargs):
     """This view renders the objects out of the offer model
     (meaning the scraped SIXT-rates) for the user to
     display at /results"""
-
-    from . import Scrape_sqlite
-    Scrape_sqlite()
 
     allOffers = Offer.objects.all().order_by('price')
     context = {

@@ -404,7 +404,7 @@ class Scrape:
 
 
                 data.append(
-                        {"cartype": car_type, "cardescription": car_description, "price": car_price[1:-6], "mileage": mileage,
+                        {"cartype": car_type, "cardescription": car_description, "price": car_price, "mileage": mileage,
                          "pickupdate": pickup_date, "pickuptime": pickup_time, "dropoffdate": dropoff_date,
                          "dropofftime": dropoff_time, "bookingclass": bookingclass[-4:], "searchid": searchid_int, "countrycode": countrycode})
                 df = pd.DataFrame(data)
