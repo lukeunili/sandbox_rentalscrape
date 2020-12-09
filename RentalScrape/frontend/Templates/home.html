@@ -18,26 +18,31 @@
 <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
+     .bg {
+        /* The image used */
+        background-image: url("http://127.0.0.1:8000/static/Images/moody_road.png");
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
+        /* Full height */
+        height: 100%;
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
         }
-      }
+
+     .transparent {
+        zoom: 1;
+        filter: alpha(opacity=80);
+        opacity: 0.8;
+}
     </style>
     <!-- Custom styles for this template -->
     <link href="{%  static  'css/pricing.css'  %}" rel="stylesheet">
   </head>
   <body>
 
+<div class="bg">
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <h1 class="display-4">Welcome to RentalScrape</h1>
   <p class="lead">It has never been easier to find the cheapest SIXT rate!</p>
@@ -45,7 +50,7 @@
 
 <div class="container">
   <div class="card-deck mb-3 text-center">
-    <div class="card mb-4 shadow-sm">
+    <div class="card mb-4 shadow-sm transparent">
       <div class="card-header">
         <h4 class="my-0 font-weight-normal">Please choose your rental period:</h4>
       </div>
@@ -56,10 +61,10 @@
           {{form.as_p}}
           <input type="Submit" name="Save" class="btn btn-lg btn-block btn-outline-primary">
         </form>
-
       </div>
     </div>
   </div>
+</div>
 </div>
 </body>
 </html>
