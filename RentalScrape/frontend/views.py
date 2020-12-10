@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .forms import SearchForm2
 from .models import Offer
 from django.http import HttpResponseRedirect
+import multiprocessing
+
 
 # Create your views here.
 
@@ -14,7 +16,14 @@ def QueryCreateView(httprequest, *args, **kwargs):
         search_form.save()
         search_form = SearchForm2()
         from .Scrape_sqlite import Scrape
-        Scrape()
+        from .Scrape_sqliteDE import ScrapeDE
+
+        p1 = multiprocessing.Process(target=Scrape)
+        p2 = multiprocessing.Process(target=ScrapeDE)
+
+        p1.start()
+        p2.start()
+
         return HttpResponseRedirect('results/')
 
     context = {
