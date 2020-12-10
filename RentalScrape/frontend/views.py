@@ -18,11 +18,17 @@ def QueryCreateView(httprequest, *args, **kwargs):
         from .Scrape_sqlite import Scrape
         from .Scrape_sqliteDE import ScrapeDE
 
-        p1 = multiprocessing.Process(target=Scrape)
-        p2 = multiprocessing.Process(target=ScrapeDE)
 
-        p1.start()
-        p2.start()
+        import os
+        from multiprocessing import Pool
+
+        processes = (Scrape, ScrapeDE)
+
+        def run_process(process):
+            os.system('python {}'.format(process))
+
+        pool = Pool(processes=2)
+        pool.map(run_process, processes)
 
         return HttpResponseRedirect('results/')
 
@@ -57,7 +63,7 @@ def OfferList(httprequest, *args, **kwargs):
     (meaning the scraped SIXT-rates) for the user to
     display at /results, orderer ascending by price"""
 
-    allOffers = Offer.objects.all().order_by('bookingclass', 'price')
+    allOffers = Offer.objects.all().order_by('price')
     context = {
         "allOffers": allOffers,
         "title": "All offers",
