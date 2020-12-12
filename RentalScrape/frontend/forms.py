@@ -3,9 +3,14 @@ from .models import SearchInput
 
 
 STATION_CHOICE = (
+    ("Triesen", "Triesen"),
     ("Muenchen Flughafen", "Muenchen Flughafen"),
-    ("Wien-Schwechat Flughafen", "Wien-Schwechat Flughafen"),
-    ("Solln", "Solln")
+    ("Konstanz", "Konstanz"),
+    ("Lindau", "Lindau"),
+    ("Friedrichshafen", "Friedrichshafen"),
+    ("Solln", "Solln"),
+    ("Dornbirn", "Dornbirn"),
+    ("Wien-Schwechat Flughafen", "Wien-Schwechat Flughafen")
 )
 """List of available SIXT Stations"""
 
