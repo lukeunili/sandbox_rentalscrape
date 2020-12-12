@@ -30,7 +30,7 @@ class Offer(models.Model):
     """This model is used to save the scraped data and display it to the user at /results.
     In Scrape_sqlite.py the data is written directly into the sqlite table frontend_offer"""
     cartype = models.CharField(max_length=50)
-    price = models.CharField(max_length=10)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
     mileage = models.CharField(max_length=50)
     pickupdate = models.CharField(max_length=10)
     pickuptime = models.TimeField()

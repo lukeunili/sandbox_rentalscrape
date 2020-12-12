@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms import SearchForm2
 from .models import Offer
 from django.http import HttpResponseRedirect
+from django.db.models import Count
 import multiprocessing
 
 
@@ -58,10 +59,25 @@ def tipstricks(httprequest):
     return render(httprequest, "tipstricks.html")
 
 
+def OfferListBookingclass(httprequest, *args, **kwargs):
+    bookingclassOffers = Offer.objects.all()\
+        .values('bookingclass')\
+        .annotate(dcount=Count('bookingclass'))\
+        .order_by('price')
+    context = {
+        "bookingclassOffers": bookingclassOffers,
+        "title": "bookingclassoffers",
+    }
+
+    return render(httprequest, "resultsbookingclass.html", context)
+
 def OfferList(httprequest, *args, **kwargs):
     """This view renders the objects out of the offer model
     (meaning the scraped SIXT-rates) for the user to
     display at /results, orderer ascending by price"""
+
+
+
 
     allOffers = Offer.objects.all().order_by('price')
     context = {

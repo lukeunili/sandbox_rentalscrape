@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block mainContent %}
+<!doctype html>
+<html lang="en">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Pricing example · Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/pricing/">
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      #share-buttons img {
+        width: 10px;
+        padding: 1px;
+        border: 0;
+        box-shadow: 0;
+        display: inline;
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="{%  static  'css/pricing.css'  %}" rel="stylesheet">
+  </head>
+  <body>
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Your results</h1>
+</div>
+
+
+
+<div class="container">
+
+    <!-- Email -->
+    <a href="mailto:?Subject=RentalScrape&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://127.0.0.1:8000">
+        <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" width="30"/>
+    </a>
+
+    <!-- Facebook -->
+    <a href="http://www.facebook.com/sharer.php?u=127.0.0.1:8000" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" width="30"/>
+    </a>
+
+    <a align="right" title="Print Screen" onclick="window.print();" target="_blank" class="btn btn-md btn-outline-secondary" style="float:right;">Print Results</a><br><br>
+    <hr><br>
+        {% for obj in bookingclassOffers %}
+<div class="card">
+  <div class="card-body">
+    <img itemprop="image" src="http://127.0.0.1:8000/static/Images/{{ obj.bookingclass }}.png" align="left" width="300" onerror=this.src="http://127.0.0.1:8000/static/Images/XXXX.png" style="vertical-align:middle;margin:0px 15px">
+    <h5 class="card-title">{{ obj.cartype }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{obj.bookingclass}} - {{ obj.cardescription }}</h6>
+    <p class="card-text">
+        <ul class="list-unstyled">
+            <li><strong>From:</strong> {{ obj.pickupdate}}, {{obj.pickuptime}}</li>
+            <li><strong>Until:</strong> {{ obj.dropoffdate}}, {{obj.dropofftime}}</li>
+            <li><strong>Mileage:</strong> {{ obj.mileage }}</li>
+        </ul>
+        <h2 class="card-title pricing-card-title" align="left">{{ obj.price }}€<small class="text-muted"> in total</small></h2>
+    </p>
+    <a href="https://www.sixt.at" target="_blank" class="btn btn-lg btn-block btn-outline-primary" role="button">Book now</a>
+  </div>
+</div>
+    <br>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+
+
+{% block mainContent2%}
+{% endblock %}
