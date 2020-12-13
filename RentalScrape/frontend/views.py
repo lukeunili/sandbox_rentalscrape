@@ -62,15 +62,13 @@ def tipstricks(httprequest):
 
 def BookingclassView(httprequest, pk):
     """This view returns the resultpage for each bookingclass"""
-    bookingclassallOffers = Offer.objects.all() \
-        .values('bookingclass', 'price', 'cardescription', 'cartype') \
-        .annotate(dcount=Count('bookingclass')) \
-        .order_by('price')
+    bookingclassallOffers = Offer.objects.all()
+
     context = {
         "bookingclassOffers": bookingclassallOffers,
         "title": "bookingclassoffers",
     }
-    return render(httprequest, "bookingclass.html")
+    return render(httprequest, "bookingclass.html", context)
 
 
 def OfferListBookingclass(httprequest, *args, **kwargs):
