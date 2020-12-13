@@ -11,12 +11,13 @@ import locale
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import threading
 from selenium.webdriver.common.action_chains import ActionChains
 import os
 
-""" IMPORTANT: SQL-PATHS HAVE BEEN EDITED AND ARE NOT USABLE IN LOCAL RUN """
+""" IMPORTANT: SQL-PATHS HAVE BEEN EDITED AND ARE NOT USABLE IN A LOCAL RUN """
 
-class ScrapeDE:
+class ScrapeDE(threading.Thread):
 
     # define the url what will be open
     urlpage = 'https://www.sixt.de/'
@@ -24,13 +25,13 @@ class ScrapeDE:
     print(urlpage)
 
     # define chromedriver to execute headless, incl. window size
-    WINDOW_SIZE = "1920,1080"
     chrome_options = Options()
     chrome_options.add_argument("--headless")
+    WINDOW_SIZE = "1920,1080"
     chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
 
     # run Chrome webdriver from executable path of your choice
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(options=chrome_options)
 
 
     # get web page
@@ -209,7 +210,7 @@ class ScrapeDE:
 
     """ ------------------------------------------------------------------------------------------- """
 
-    #time.sleep(3)
+    time.sleep(3)
 
     """ -- Confirm the Cockie Settings of Sixt -- """
     cookie_button = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div[1]/div[5]/div/div/div[2]/div/div/div")))
@@ -392,7 +393,6 @@ class ScrapeDE:
 
                 car_price_element = result.find_element_by_class_name("OfferTile__offerPriceTotal")
                 car_price = car_price_element.text
-                car_price_num = float(str(car_price[1:-7].replace(',', '')))
 
 
                 mileage_element = result.find_element_by_class_name("CheckList__checkmarkTitle")
@@ -429,7 +429,7 @@ class ScrapeDE:
 
                 conn = sql.connect('db.sqlite3')
                 cursor = conn.cursor()
-                df.to_sql('frontend_offer', conn, if_exists='append', index_label="id")
+                df.to_sql('frontend_offer', conn, index_label="id")
             print("Success:", SearchPickUpTimes, SearchDropOffTime)
 
 

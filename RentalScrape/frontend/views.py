@@ -3,7 +3,11 @@ from .forms import SearchForm2
 from .models import Offer
 from django.http import HttpResponseRedirect
 from django.db.models import Count
-import multiprocessing
+from django.db.models import Min
+from time import sleep
+
+from threading import *
+
 
 
 # Create your views here.
@@ -16,20 +20,18 @@ def QueryCreateView(httprequest, *args, **kwargs):
     if search_form.is_valid():
         search_form.save()
         search_form = SearchForm2()
+
         from .Scrape_sqlite import Scrape
-        from .Scrape_sqliteDE import ScrapeDE
+        #from .Scrape_DE import ScrapeDE
 
 
-        import os
-        from multiprocessing import Pool
 
-        processes = (Scrape, ScrapeDE)
+        t1 = Scrape()
+        #t2 = ScrapeDE()
 
-        def run_process(process):
-            os.system('python {}'.format(process))
-
-        pool = Pool(processes=2)
-        pool.map(run_process, processes)
+        t1.start()
+        #sleep(0.2)
+        #t2.start()
 
         return HttpResponseRedirect('results/')
 
@@ -58,10 +60,22 @@ def tipstricks(httprequest):
     """This view returns tipstricks.html to /tipstricks"""
     return render(httprequest, "tipstricks.html")
 
+def BookingclassView(httprequest, pk):
+    """This view returns the resultpage for each bookingclass"""
+    bookingclassallOffers = Offer.objects.all() \
+        .values('bookingclass', 'price', 'cardescription', 'cartype') \
+        .annotate(dcount=Count('bookingclass')) \
+        .order_by('price')
+    context = {
+        "bookingclassOffers": bookingclassallOffers,
+        "title": "bookingclassoffers",
+    }
+    return render(httprequest, "bookingclass.html")
+
 
 def OfferListBookingclass(httprequest, *args, **kwargs):
     bookingclassOffers = Offer.objects.all()\
-        .values('bookingclass')\
+        .values('bookingclass', 'price', 'cardescription', 'cartype')\
         .annotate(dcount=Count('bookingclass'))\
         .order_by('price')
     context = {

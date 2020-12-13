@@ -66,18 +66,19 @@
 
     <a align="right" title="Print Screen" onclick="window.print();" target="_blank" class="btn btn-md btn-outline-secondary" style="float:right;">Print Results</a><br><br>
     <hr><br>
-        {% for obj in bookingclassOffers %}
+        {% for obj in bookingclassallOffers %}
 <div class="card">
   <div class="card-body">
-    <img itemprop="image" src="http://127.0.0.1:8000/static/Images/{{ obj.bookingclass }}.png" align="left" width="200" onerror=this.src="http://127.0.0.1:8000/static/Images/XXXX.png" style="vertical-align:middle;margin:0px 15px">
+    <img itemprop="image" src="http://127.0.0.1:8000/static/Images/{{ obj.bookingclass }}.png" align="left" width="300" onerror=this.src="http://127.0.0.1:8000/static/Images/XXXX.png" style="vertical-align:middle;margin:0px 15px">
     <h5 class="card-title">{{ obj.cartype }}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{obj.bookingclass}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">{{obj.bookingclass}} - {{ obj.cardescription }}</h6>
     <p class="card-text">
         <ul class="list-unstyled">
-            <li><h2 class="card-title pricing-card-title" align="left">From {{ obj.price }}€</h2></li>
-
+            <li><strong>From:</strong> {{ obj.pickupdate}}, {{obj.pickuptime}}</li>
+            <li><strong>Until:</strong> {{ obj.dropoffdate}}, {{obj.dropofftime}}</li>
+            <li><strong>Mileage:</strong> {{ obj.mileage }}</li>
         </ul>
-
+        <h2 class="card-title pricing-card-title" align="left">{{ obj.price }}€<small class="text-muted"> in total</small></h2>
     </p>
     <a href="https://www.sixt.at" target="_blank" class="btn btn-lg btn-block btn-outline-primary" role="button">Book now</a>
   </div>

@@ -17,11 +17,11 @@ import os
 
 """ IMPORTANT: SQL-PATHS HAVE BEEN EDITED AND ARE NOT USABLE IN LOCAL RUN """
 
-class Scrape(threading.Thread):
+class ScrapeDE(threading.Thread):
 
     # define the url what will be open
-    urlpage = 'https://www.sixt.at/'
-    countrycode = "AT"
+    urlpage = 'https://www.sixt.de/'
+    countrycode = "DE"
     print(urlpage)
 
 
@@ -29,7 +29,7 @@ class Scrape(threading.Thread):
     # define chromedriver to execute headless, incl. window size
     WINDOW_SIZE = "1920,1080"
     chrome_options = Options()
-    #chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--headless")
     chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
 
     # run Chrome webdriver from executable path of your choice
@@ -188,6 +188,7 @@ class Scrape(threading.Thread):
     """Convert tuple into string"""
 
     dropoffdate_date = datetime.datetime.strptime(dropoffdate_str, "%Y-%m-%d")
+
     """Convert string into datetime format"""
 
     dropoffdate_adbY = dropoffdate_date.strftime("%a. %-d. %b %Y")
@@ -239,7 +240,7 @@ class Scrape(threading.Thread):
     rental_PickUpDateButton = driver.find_element_by_xpath("//div[@class='DateButton__horizontal DateButton__wrapper']/span[@class='DateButton__date']")
     rental_PickUpDateButton.click()
     # choose pick up date 15.01.2021
-    time.sleep(2.5)
+    time.sleep(2)
 
     #rental_PickupDateArrow = driver.find_element_by_css_selector("div[aria-label='Next Month']")
 
@@ -265,16 +266,14 @@ class Scrape(threading.Thread):
     rental_PickUpTimeButton.click()
     time.sleep(0.5)
 
-    rental_PickUpTimer1 = driver.find_element_by_xpath("//*[contains(text(), '" + str(pickuptime30_str) + "')]")
+    rental_PickUpTimer = driver.find_element_by_xpath("//*[contains(text(), '" + str(pickuptime30_str) + "')]")
     #actions = ActionChains(driver)
     #actions.move_to_element(rental_PickUpTimer).perform()
     #scrollbar = driver.find_element_by_xpath("//*[@id='root']/div/div[1]/div[2]/div[1]/div/div/div/div[3]/div/span/div/div/div[2]/div/div")
     #driver.execute_script("animate({scrollTop: '100px'})", scrollbar)
-    driver.execute_script("return arguments[0].scrollIntoView(true);", rental_PickUpTimer1)
+    driver.execute_script("return arguments[0].scrollIntoView(true);", rental_PickUpTimer)
     #driver.execute_script('arguments[0].moveToView(true);', rental_PickUpTimer)
     time.sleep(0.5)
-    rental_PickUpTimer = driver.find_element_by_xpath("//*[contains(text(), '" + str(pickuptime30_str) + "')]")
-
     #rental_PickUpTime = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), '" + str(pickuptime30_str) + "')]")))
     rental_PickUpTimer.click()
 
@@ -283,21 +282,20 @@ class Scrape(threading.Thread):
     time.sleep(0.5)
 
     # choose drop off time 12:00
-    time.sleep(1)
+    time.sleep(0.5)
     try:
-        rental_DropOffTimeButton = driver.find_element_by_xpath("//*[@class='SearchEngine__returnDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")
+        rental_DropOffTimeButton = driver.find_element_by_xpath(
+            "//*[@class='SearchEngine__returnDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")
         rental_DropOffTimeButton.click()
     except:
         time.sleep(0.5)
 
     time.sleep(0.5)
 
-    rental_DropOffTimer1 = driver.find_element_by_xpath("//*[contains(text(), '" + str(dropofftime30_str) + "')]")
-    driver.execute_script('arguments[0].scrollIntoView(true);', rental_DropOffTimer1)
+    rental_DropOffTimer = driver.find_element_by_xpath("//*[contains(text(), '" + str(dropofftime30_str) + "')]")
+    driver.execute_script('arguments[0].scrollIntoView(true);', rental_DropOffTimer)
     time.sleep(0.5)
     #rental_DropOffTime = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), '" + str(dropofftime30_str) + "')]")))
-
-    rental_DropOffTimer = driver.find_element_by_xpath("//*[contains(text(), '" + str(dropofftime30_str) + "')]")
     rental_DropOffTimer.click()
 
     print(str(dropofftime30_str))
@@ -375,7 +373,7 @@ class Scrape(threading.Thread):
         #driver.execute_script(
         #    "window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
 
-        #time.sleep(2)
+        #time.sleep(1)
         #offers3 = driver.find_elements_by_xpath("//*[@class='OfferList__gridItem']")
 
         for SearchDropOffTime in dropofftimes:
@@ -390,12 +388,12 @@ class Scrape(threading.Thread):
             #driver.find_element_by_xpath("//*[contains(text(), '" + str(SearchDropOffTime) +"')]")
             #driver.execute_script('arguments[0].scrollIntoView(true);', rental_dropofftimes)
             rental_dropofftimes.click()
-            time.sleep(1)
+            time.sleep(1.5)
 
             # scroll until the end of the website
-            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
+            #driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
 
-            time.sleep(1)
+            #time.sleep(1.5)
             offers4 = driver.find_elements_by_xpath("//*[@class='OfferList__gridItem']")
             for result in offers4:
                 car_type_element = result.find_element_by_class_name("OfferTile__descriptionTitle")
@@ -407,12 +405,13 @@ class Scrape(threading.Thread):
                 car_price_element = result.find_element_by_class_name("OfferTile__offerPriceTotal")
                 car_price = car_price_element.text
                 try:
-                    car_price_num = float(str(car_price[1:-7].replace(',', '')))
+                    car_price_num = float(str(car_price[1:-16].replace(',', '')))
                 except:
                     time.sleep(1)
                     car_price_element = result.find_element_by_class_name("OfferTile__offerPriceTotal")
                     car_price = car_price_element.text
-                    car_price_num = float(str(car_price[1:-7].replace(',', '')))
+                    car_price_num = float(str(car_price[1:-14].replace(',', '')))
+
 
                 mileage_element = result.find_element_by_class_name("CheckList__checkmarkTitle")
                 mileage = mileage_element.text
@@ -435,8 +434,6 @@ class Scrape(threading.Thread):
 
                 bookingclass_element = result.find_element_by_class_name("OfferTile__wrapper")
                 bookingclass = bookingclass_element.get_attribute("class")
-
-
 
 
 
