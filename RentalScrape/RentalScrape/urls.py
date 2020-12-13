@@ -26,5 +26,5 @@ urlpatterns = [
     path('results/', OfferList),
     path('loading/', LoadingView),
     path('bclass/', OfferListBookingclass),
-    path('<str:pk>', BookingclassView)
+    path('results/<str:bc>', BookingclassView)
 ]

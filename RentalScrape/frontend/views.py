@@ -60,12 +60,16 @@ def tipstricks(httprequest):
     """This view returns tipstricks.html to /tipstricks"""
     return render(httprequest, "tipstricks.html")
 
-def BookingclassView(httprequest, pk):
+def BookingclassView(httprequest, bc):
     """This view returns the resultpage for each bookingclass"""
-    bookingclassallOffers = Offer.objects.all()
+
+    bc = Offer.objects.all().annotate(dcount=Count('bookingclass'))
+    bookingclassOffers = Offer.objects.all().annotate(dcount=Count('bookingclass')) \
+        .order_by('price')
+
 
     context = {
-        "bookingclassOffers": bookingclassallOffers,
+        "bookingclassOffers": bookingclassOffers,
         "title": "bookingclassoffers",
     }
     return render(httprequest, "bookingclass.html", context)
