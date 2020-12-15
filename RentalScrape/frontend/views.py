@@ -28,9 +28,9 @@ def QueryCreateView(httprequest, *args, **kwargs):
         t1.start()
         # sleep(0.2)
         # t2.start()
-        redirect('/results/')
 
-        return HttpResponseRedirect('loading/')
+
+        return HttpResponseRedirect('results/')
 
     context = {
         "form": search_form,
