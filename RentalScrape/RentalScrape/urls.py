@@ -23,8 +23,8 @@ urlpatterns = [
     path('', QueryCreateView),
     path('aboutus/', aboutus),
     path('tipstricks', tipstricks),
-    path('results/', OfferList),
+    path('OfferList/', OfferList),
     path('loading/', LoadingView),
-    path('bclass/', OfferListBookingclass),
+    path('results/', OfferListBookingclass),
     path('results/<str:bc>', BookingclassView)
 ]

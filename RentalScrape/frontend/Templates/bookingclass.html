@@ -54,6 +54,8 @@
 
 <div class="container">
 
+    <a align="right" title="Back to results" href="/results/" target="_blank" class="btn btn-md btn-outline-secondary" style="float:right;" role="button">Back to results</a>
+
     <!-- Email -->
     <a href="mailto:?Subject=RentalScrape&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://127.0.0.1:8000">
         <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" width="30"/>
@@ -66,7 +68,7 @@
 
     <a align="right" title="Print Screen" onclick="window.print();" target="_blank" class="btn btn-md btn-outline-secondary" style="float:right;">Print Results</a><br><br>
     <hr><br>
-        {% for obj in bookingclassallOffers %}
+        {% for obj in bookingclassOffers %}
 <div class="card">
   <div class="card-body">
     <img itemprop="image" src="http://127.0.0.1:8000/static/Images/{{ obj.bookingclass }}.png" align="left" width="300" onerror=this.src="http://127.0.0.1:8000/static/Images/XXXX.png" style="vertical-align:middle;margin:0px 15px">
@@ -80,7 +82,7 @@
         </ul>
         <h2 class="card-title pricing-card-title" align="left">{{ obj.price }}€<small class="text-muted"> in total</small></h2>
     </p>
-    <a href="https://www.sixt.at" target="_blank" class="btn btn-lg btn-block btn-outline-primary" role="button">Book now</a>
+    <a href="https://www.sixt.at/#/reservation/offerlist?campaign=2-de-de-10-gn-PKW-gn-Mietwagenecke" target="_blank" class="btn btn-lg btn-block btn-outline-primary" role="button">Book now and get a voucher worth 10% of the total price!</a>
   </div>
 </div>
     <br>

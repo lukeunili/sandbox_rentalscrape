@@ -20,20 +20,17 @@ def QueryCreateView(httprequest, *args, **kwargs):
     if search_form.is_valid():
         search_form.save()
         search_form = SearchForm2()
-
         from .Scrape_sqlite import Scrape
-        #from .Scrape_DE import ScrapeDE
-
-
 
         t1 = Scrape()
-        #t2 = ScrapeDE()
+        # t2 = ScrapeDE()
 
         t1.start()
-        #sleep(0.2)
-        #t2.start()
+        # sleep(0.2)
+        # t2.start()
+        redirect('/results/')
 
-        return HttpResponseRedirect('results/')
+        return HttpResponseRedirect('loading/')
 
     context = {
         "form": search_form,
@@ -49,7 +46,9 @@ def LoadingView(httprequest):
     and should show as long as Scrape_sqlite.py is running.
     Once Scrape_sqlite.py finishes successfully, it should redirect to /results."""
 
-    return render(httprequest, "loading.html")
+
+
+    return render(httprequest, "/loading/")
 
 def aboutus(httprequest):
     """This view returns aboutus.html to /aboutus"""
@@ -63,9 +62,11 @@ def tipstricks(httprequest):
 def BookingclassView(httprequest, bc):
     """This view returns the resultpage for each bookingclass"""
 
-    bc = Offer.objects.all().annotate(dcount=Count('bookingclass'))
-    bookingclassOffers = Offer.objects.all().annotate(dcount=Count('bookingclass')) \
+    bookingclassOffers = Offer.objects.all() \
+        .values('bookingclass', 'price', 'cardescription', 'cartype', 'pickupdate', 'pickuptime', 'dropoffdate', 'dropofftime', 'mileage') \
+        .filter(bookingclass=bc) \
         .order_by('price')
+
 
 
     context = {
