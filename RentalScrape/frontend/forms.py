@@ -59,11 +59,6 @@ TIME_CHOICES_LAST_HARD = (
 """List of available Drop-Off times"""
 
 
-class TimeInput(forms.TimeInput):
-    """Widget to be able to use the timePicker for better usability"""
-    input_type = 'time'
-
-
 class DateInput(forms.DateInput):
     """Widget to be able to use the datePicker for better usability"""
     input_type = 'date'

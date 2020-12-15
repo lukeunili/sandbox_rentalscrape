@@ -3,10 +3,7 @@ from .forms import SearchForm2
 from .models import Offer
 from django.http import HttpResponseRedirect
 from django.db.models import Count
-from django.db.models import Min
-from time import sleep
 
-from threading import *
 
 
 
@@ -21,15 +18,8 @@ def QueryCreateView(httprequest, *args, **kwargs):
         search_form.save()
         search_form = SearchForm2()
         from .Scrape_sqlite import Scrape
-
         t1 = Scrape()
-        # t2 = ScrapeDE()
-
         t1.start()
-        # sleep(0.2)
-        # t2.start()
-
-
         return HttpResponseRedirect('results/')
 
     context = {
@@ -50,7 +40,7 @@ def tipstricks(httprequest):
 
 
 def BookingclassView(httprequest, bc):
-    """This view returns the resultpage for each bookingclass"""
+    """This view returns the results for each bookingclass"""
 
     bookingclassOffers = Offer.objects.all() \
         .values('bookingclass', 'price', 'cardescription', 'cartype', 'pickupdate', 'pickuptime', 'dropoffdate', 'dropofftime', 'mileage') \
@@ -61,10 +51,11 @@ def BookingclassView(httprequest, bc):
         "bookingclassOffers": bookingclassOffers,
         "title": "bookingclassoffers",
     }
-    return render(httprequest, "bookingclass.html", context)
+    return render(httprequest, "results_detail.html", context)
 
 
 def OfferListBookingclass(httprequest, *args, **kwargs):
+    """This view returns the result organized by bookingclass and price"""
     bookingclassOffers = Offer.objects.all()\
         .values('bookingclass', 'price', 'cardescription', 'cartype')\
         .annotate(dcount=Count('bookingclass'))\
@@ -74,7 +65,7 @@ def OfferListBookingclass(httprequest, *args, **kwargs):
         "title": "bookingclassoffers",
     }
 
-    return render(httprequest, "resultsbookingclass.html", context)
+    return render(httprequest, "results_overview.html", context)
 
 
 def OfferList(httprequest, *args, **kwargs):

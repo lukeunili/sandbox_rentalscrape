@@ -1,6 +1,3 @@
-#from typing import List
-
-#from pandas import DataFrame
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
@@ -11,12 +8,11 @@ import locale
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import threading
 
 
 """ IMPORTANT: SQL-PATHS HAVE BEEN EDITED AND ARE NOT USABLE IN LOCAL RUN """
 
-class Scrape(threading.Thread):
+class Scrape:
 
     # define the url what will be open
     urlpage = 'https://www.sixt.at/'
@@ -374,11 +370,3 @@ class Scrape(threading.Thread):
                 df.to_sql('frontend_offer', conn, if_exists='replace', index_label='id')
             print("Success:", SearchPickUpTimes, SearchDropOffTime)
 
-""" All of the scraped data is presented in the terminal """
-
-    #df = pd.DataFrame(data)
-    #df.sort_values(by='price', ascending=True, ignore_index=True)
-    #print(df)
-
-
-    #print('Finished writing to SQL database')
