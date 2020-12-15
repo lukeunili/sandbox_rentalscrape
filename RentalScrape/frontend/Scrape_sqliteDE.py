@@ -1,6 +1,4 @@
-#from typing import List
 
-#from pandas import DataFrame
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
@@ -14,6 +12,8 @@ from selenium.webdriver.support import expected_conditions as EC
 import threading
 from selenium.webdriver.common.action_chains import ActionChains
 import os
+#from typing import List
+#from pandas import DataFrame
 
 """ IMPORTANT: SQL-PATHS HAVE BEEN EDITED AND ARE NOT USABLE IN A LOCAL RUN """
 

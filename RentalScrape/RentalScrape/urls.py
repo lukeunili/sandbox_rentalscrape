@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from frontend.views import QueryCreateView, aboutus, tipstricks, OfferList, LoadingView, OfferListBookingclass, BookingclassView
+from frontend.views import QueryCreateView, aboutus, tipstricks, OfferList, OfferListBookingclass, BookingclassView
 
 
 urlpatterns = [
@@ -23,8 +23,7 @@ urlpatterns = [
     path('', QueryCreateView),
     path('aboutus/', aboutus),
     path('tipstricks', tipstricks),
-    path('OfferList/', OfferList),
-    path('loading/', LoadingView),
+    path('results-legacy/', OfferList),
     path('results/', OfferListBookingclass),
     path('results/<str:bc>', BookingclassView)
 ]

@@ -39,17 +39,6 @@ def QueryCreateView(httprequest, *args, **kwargs):
     return render(httprequest, "home.html", context)
 
 
-def LoadingView(httprequest):
-    """ ---- INACTIVE ----
-    This view returns loading.html to /loading.
-    It should be triggered by the user submitting the /home form
-    and should show as long as Scrape_sqlite.py is running.
-    Once Scrape_sqlite.py finishes successfully, it should redirect to /results."""
-
-
-
-    return render(httprequest, "/loading/")
-
 def aboutus(httprequest):
     """This view returns aboutus.html to /aboutus"""
     return render(httprequest, "aboutus.html")
@@ -59,6 +48,7 @@ def tipstricks(httprequest):
     """This view returns tipstricks.html to /tipstricks"""
     return render(httprequest, "tipstricks.html")
 
+
 def BookingclassView(httprequest, bc):
     """This view returns the resultpage for each bookingclass"""
 
@@ -66,8 +56,6 @@ def BookingclassView(httprequest, bc):
         .values('bookingclass', 'price', 'cardescription', 'cartype', 'pickupdate', 'pickuptime', 'dropoffdate', 'dropofftime', 'mileage') \
         .filter(bookingclass=bc) \
         .order_by('price')
-
-
 
     context = {
         "bookingclassOffers": bookingclassOffers,
@@ -88,13 +76,11 @@ def OfferListBookingclass(httprequest, *args, **kwargs):
 
     return render(httprequest, "resultsbookingclass.html", context)
 
+
 def OfferList(httprequest, *args, **kwargs):
     """This view renders the objects out of the offer model
     (meaning the scraped SIXT-rates) for the user to
     display at /results, orderer ascending by price"""
-
-
-
 
     allOffers = Offer.objects.all().order_by('price')
     context = {
@@ -102,7 +88,7 @@ def OfferList(httprequest, *args, **kwargs):
         "title": "All offers",
         }
 
-    return render(httprequest, "results.html", context)
+    return render(httprequest, "results_legacy.html", context)
 
 
 

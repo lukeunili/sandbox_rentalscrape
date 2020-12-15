@@ -4,8 +4,6 @@ from django.core.exceptions import ValidationError
 
 # Create your models here.
 
-begin_time = models.TimeField(default=dt.time(00, 00))
-
 def no_past(value):
     """Validation to ensure, users don't insert dates from the past"""
     today = dt.date.today()
