@@ -282,27 +282,27 @@ class Scrape:
 
     for SearchPickUpTimes in pickuptimes:
         driver.execute_script("window.scrollTo(0, 0);")
+        time.sleep(0.5)
         rental_PickUpTimeButton = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*[@class='SearchEngine__pickupDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")))
         rental_PickUpTimeButton.click()
         time.sleep(0.5)
-        rental_pickuptimes = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), '" + (SearchPickUpTimes) +"')]")))
+        rental_pickuptimes = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*[@class='TimeList__wrapper']//*[contains(text(), '" + (SearchPickUpTimes) + "')]")))
         rental_pickuptimes.click()
         time.sleep(1)
 
         """ Second loop is to define the exact drop off time """
 
         for SearchDropOffTime in dropofftimes:
+            time.sleep(0.5)
             driver.execute_script("window.scrollTo(0, 0);")
-            try:
-                rental_DropOffTimeButton2 = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, "//*[@class='SearchEngine__returnDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")))
-            except:
-                pass
-            else:
-                rental_DropOffTimeButton2.click()
+
+            rental_DropOffTimeButton2 = driver.find_element_by_xpath("//*[@class='SearchEngine__returnDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")
+                #WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, "//*[@class='SearchEngine__returnDateTime']//*[@class='TimeButton__horizontal TimeButton__wrapper']")))
+            rental_DropOffTimeButton2.click()
 
 
             time.sleep(0.5)
-            rental_dropofftimes = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH,"//*[contains(text(), '" + str(SearchDropOffTime) + "')]")))
+            rental_dropofftimes = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH,"//*[@class='TimeList__wrapper']//*[contains(text(), '" + str(SearchDropOffTime) + "')]")))
             rental_dropofftimes.click()
 
             time.sleep(1)
