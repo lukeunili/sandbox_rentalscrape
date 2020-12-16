@@ -18,8 +18,8 @@ def QueryCreateView(httprequest, *args, **kwargs):
         search_form.save()
         search_form = SearchForm2()
         from .Scrape_sqlite import Scrape
-        t1 = Scrape()
-        t1.start()
+        Scrape()
+
         return HttpResponseRedirect('results/')
 
     context = {

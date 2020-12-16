@@ -24,7 +24,7 @@ class Scrape:
     # define chromedriver to execute headless, incl. window size
     WINDOW_SIZE = "1920,1080"
     chrome_options = Options()
-    #chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--headless")
     chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
 
     # run Chrome webdriver from executable path of your choice
@@ -213,6 +213,7 @@ class Scrape:
     time.sleep(3)
 
     """ -- Confirm the Cockie Settings of Sixt -- """
+
     cookie_button = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div[1]/div[5]/div/div/div[2]/div/div/div")))
     cookie_button.click()
     time.sleep(1)
@@ -323,7 +324,7 @@ class Scrape:
                 car_description_element = result.find_element_by_class_name("OfferTile__descriptionText")
                 car_description = car_description_element.text
 
-                """ This seems to be redundant, but sometime to code fail to convert the str to a float """
+                """ This following part seems to be redundant, but sometime the code fail to convert the str to a float """
 
                 car_price_element = result.find_element_by_class_name("OfferTile__offerPriceTotal")
                 car_price = car_price_element.text
@@ -369,4 +370,3 @@ class Scrape:
                 cursor = conn.cursor()
                 df.to_sql('frontend_offer', conn, if_exists='replace', index_label='id')
             print("Success:", SearchPickUpTimes, SearchDropOffTime)
-
