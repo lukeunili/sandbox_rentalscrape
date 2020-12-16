@@ -16,4 +16,4 @@ Chromedriver<br>
 Pandas<br>
 
 ##### Further development
-The following features and addons could be implemented to enhance user experience: AJAX features to show loading screen to user, direct API access to SIXT, dynamic filtering for results page, dynamic results page for each searchid, ..
+The following features and addons could be implemented to enhance user experience: AJAX features to show loading screen to user, direct API access to SIXT, dynamic filtering for results page, dynamic results page for each searchid, multicountry support, direct booking link to sixt.at, ..
