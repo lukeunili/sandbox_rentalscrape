@@ -3,7 +3,7 @@ from .forms import SearchForm2
 from .models import Offer
 from django.http import HttpResponseRedirect
 from django.db.models import Count
-
+from threading import *
 
 
 
@@ -18,8 +18,8 @@ def QueryCreateView(httprequest, *args, **kwargs):
         search_form.save()
         search_form = SearchForm2()
         from .Scrape_sqlite import Scrape
-        Scrape()
-
+        t1 = Scrape()
+        t1.start()
         return HttpResponseRedirect('results/')
 
     context = {
