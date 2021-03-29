@@ -1,7 +1,7 @@
 import requests
 import urllib.parse
 
-pickupaddress = "Graz" #input("Where would you like to pick up your car? ")
+pickupaddress = input("Where would you like to pick up your car? ")
 print("Your location for pick-up: ", pickupaddress)
 n = 3
 url = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(pickupaddress) +'?format=json'
@@ -27,7 +27,7 @@ print()
 
 """ -------------------------------------------------------------------------------------------------- """
 
-dropoffaddress = "Graz" #input("Where would you like to drop off your car? ")
+dropoffaddress = input("Where would you like to drop off your car? ")
 print("Your location for drop-off: ", dropoffaddress)
 n = 5
 url = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(dropoffaddress) +'?format=json'
@@ -50,10 +50,10 @@ print()
 favorite_dropoff = int(input("Choose the desired # of your dropoff-station: ")) - 1
 print("You chose: ", content[favorite_dropoff]["title"])
 
-pickup_date = "2021-03-26" #input('Enter a date in YYYY-MM-DD format: ')
+pickup_date = input('Enter a date in YYYY-MM-DD format: ')
 print("Pickup-date", pickup_date)
 print()
-dropoff_date = "2021-03-28" #input('Enter a date in YYYY-MM-DD format: ')
+dropoff_date = input('Enter a date in YYYY-MM-DD format: ')
 print("Dropoff-date:", dropoff_date)
 
 
@@ -65,5 +65,18 @@ offer_content = offer_response.json()
 
 offers = offer_content["offers"]
 
-for key in offers:
-    print(key)
+#for key in offers:
+    #print(key)
+
+#offers = offer_content["offers"]
+
+#print(offers)
+
+nummer = 0
+
+for x in offers:
+    print(nummer+1, ".", offer_content["offers"][nummer]["acrissCode"], offer_content["offers"][nummer]["headlines"]["description"], offer_content["offers"][nummer]["mileageInfo"]["display"],  offer_content["offers"][nummer]["prices"]["totalPrice"]["amount"]["value"])
+    nummer += 1
+
+carselection = input('Which number would you like to select? ')
+print("You selected number: ", carselection)

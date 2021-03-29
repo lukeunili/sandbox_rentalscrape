@@ -189,16 +189,16 @@ SixtOfferURL = 'https://web-api.orange.sixt.com/v1/rentaloffers/offers?pickupSta
 
 r = requests.get(SixtOfferURL)
 
-offercontent = r.json()
+offer_content = r.json()
 
-offers = offercontent["offers"]
+offers = offer_content["offers"]
 
 #print(offers)
 
 nummer = 0
 
 for x in offers:
-    print(offercontent["offers"][nummer]["acrissCode"], offercontent["offers"][nummer]["headlines"]["description"], offercontent["offers"][nummer]["mileageInfo"]["display"],  offercontent["offers"][nummer]["prices"]["totalPrice"]["amount"]["value"])
+    print(offercontent["offers"][nummer]["acrissCode"], offer_content["offers"][nummer]["headlines"]["description"], offercontent["offers"][nummer]["mileageInfo"]["display"],  offercontent["offers"][nummer]["prices"]["totalPrice"]["amount"]["value"])
     nummer += 1
 
 
