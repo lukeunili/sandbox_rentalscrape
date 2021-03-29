@@ -2,14 +2,14 @@ import requests
 import urllib.parse
 import pandas as pd
 
-pickupaddress = input("Where would you like to pick up your car? ")
-print("Your location for pick-up: ", pickupaddress)
+#pickupaddress = input("Where would you like to pick up your car? ")
+#print("Your location for pick-up: ", pickupaddress)
 n = 3
-url = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(pickupaddress) +'?format=json'
+#url = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(pickupaddress) +'?format=json'
 
-location_response = requests.get(url).json()
-lat = location_response[0]["lat"]
-lon = location_response[0]["lon"]
+#location_response = requests.get(url).json()
+lat = "48.354249660166296"
+lon = "11.784820800992158"
 
 station_response = requests.get("https://web-api.orange.sixt.com/v1/locations/geo?latitude=" + lat + "&longitude=" + lon)
 content = station_response.json()
@@ -28,14 +28,14 @@ print()
 
 """ -------------------------------------------------------------------------------------------------- """
 
-dropoffaddress = input("Where would you like to drop off your car? ")
-print("Your location for drop-off: ", dropoffaddress)
+dropoffaddress = favorite_pickup
+#print("Your location for drop-off: ", dropoffaddress)
 n = 5
-url = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(dropoffaddress) +'?format=json'
+#url = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(dropoffaddress) +'?format=json'
 
-location_response = requests.get(url).json()
-lat = location_response[0]["lat"]
-lon = location_response[0]["lon"]
+#location_response = requests.get(url).json()
+#lat = location_response[0]["lat"]
+#lon = location_response[0]["lon"]
 
 station_response = requests.get("https://web-api.orange.sixt.com/v1/locations/geo?latitude=" + lat + "&longitude=" + lon)
 content = station_response.json()
@@ -48,20 +48,20 @@ for i in range(n):
 
 print()
 
-favorite_dropoff = int(input("Choose the desired # of your dropoff-station: ")) - 1
+favorite_dropoff = favorite_pickup
 print("You chose: ", content[favorite_dropoff]["title"])
 
-pickup_date = input('Enter a date in YYYY-MM-DD format: ')
+pickup_date = "2021-04-10"
 print("Pickup-date", pickup_date)
 
-return_date = input('Enter a date in YYYY-MM-DD format: ')
+return_date = "2021-04-13"
 print("Return-date:", return_date)
 
-pickup_time = input('Enter a time in HH:MM:SS format: ')
-print("Pickup time:", return_date)
+pickup_time = "09:00:00"
+print("Pickup time:", pickup_time)
 
-return_time = input('Enter a time in HH:MM:SS format: ')
-print("Return time:", return_date)
+return_time = "09:00:00"
+print("Return time:", return_time)
 
 url = "https://web-api.orange.sixt.com/v1/rentaloffers/offers?pickupStation=" + content[favorite_pickup]["id"] + "&returnStation=" + content[favorite_dropoff]["id"] + "&pickupDate=" + pickup_date + "T" + pickup_time + "&returnDate=" + return_date + "T" + return_time + "&carType=car&campaign=default&currency=EUR&profileId="
 print(url)
