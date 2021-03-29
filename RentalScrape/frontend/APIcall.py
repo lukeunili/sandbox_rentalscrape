@@ -100,6 +100,6 @@ print(df.sort_values(by="price"))
 carselection = input('Which ACRISS Code would you like to select? ')
 print("You selected ACRISS Code: ", carselection)
 
-url = "https://www.sixt.de/php/reservation/directoffer?uci=" + content[favorite_pickup]["id"][2:] + "&rci=" + content[favorite_dropoff]["id"][2:] + "&uda=" + pickup_date + "&rda=" + return_date + "&uti=" + pickup_time + "&rti=" + pickup_time + "&ctyp=P&grp=" + carselection + "&kdnr=&pasw="
+url = "https://www.sixt.at/php/reservation/directoffer?uci=" + content[favorite_pickup]["id"][2:] + "&rci=" + content[favorite_dropoff]["id"][2:] + "&uda=" + pickup_date + "&rda=" + return_date + "&uti=" + pickup_time + "&rti=" + pickup_time + "&ctyp=P&grp=" + carselection + "&kdnr=&pasw="
 
 print("Thank you for using RentalScrape! Here is your result. Have a pleasant drive!", url)
