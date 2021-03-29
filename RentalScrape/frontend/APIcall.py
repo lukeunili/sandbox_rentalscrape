@@ -58,10 +58,10 @@ return_date = input('Enter a date in YYYY-MM-DD format: ')
 print("Return-date:", return_date)
 
 pickup_time = input('Enter a time in HH:MM:SS format: ')
-print("Pickup time:", return_date)
+print("Pickup time:", pickup_time)
 
 return_time = input('Enter a time in HH:MM:SS format: ')
-print("Return time:", return_date)
+print("Return time:", return_time)
 
 url = "https://web-api.orange.sixt.com/v1/rentaloffers/offers?pickupStation=" + content[favorite_pickup]["id"] + "&returnStation=" + content[favorite_dropoff]["id"] + "&pickupDate=" + pickup_date + "T" + pickup_time + "&returnDate=" + return_date + "T" + return_time + "&carType=car&campaign=default&currency=EUR&profileId="
 print(url)
@@ -102,4 +102,4 @@ print("You selected ACRISS Code: ", carselection)
 
 url = "https://www.sixt.de/php/reservation/directoffer?uci=" + content[favorite_pickup]["id"][2:] + "&rci=" + content[favorite_dropoff]["id"][2:] + "&uda=" + pickup_date + "&rda=" + return_date + "&uti=" + pickup_time + "&rti=" + pickup_time + "&ctyp=P&grp=" + carselection + "&kdnr=&pasw="
 
-print("Thank you for using RentalScrape! Here is your result. Have a pleasant drive!" url)
+print("Thank you for using RentalScrape! Here is your result. Have a pleasant drive!", url)
