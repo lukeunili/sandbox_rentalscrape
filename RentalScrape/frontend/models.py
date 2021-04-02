@@ -27,14 +27,21 @@ class SearchInput(models.Model):
 class Offer(models.Model):
     """This model is used to save the scraped data and display it to the user at /results.
     In Scrape_sqlite.py the data is written directly into the sqlite table frontend_offer"""
-    cartype = models.CharField(max_length=50)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    mileage = models.CharField(max_length=50)
-    pickupdate = models.CharField(max_length=10)
+    cartype = models.CharField(max_length=50, blank=True, null=True, default="")
+    price = models.CharField(max_length=100, blank=True, null=True, default="")
+    mileage = models.CharField(max_length=50, blank=True, null=True, default="")
+    pickupdate = models.CharField(max_length=100, blank=True, null=True, default="")
     pickuptime = models.TimeField()
-    dropoffdate = models.CharField(max_length=10)
+    pickuptimes = models.CharField(max_length=4, blank=True, null=True, default="")
+    dropoffdate = models.CharField(max_length=100, blank=True, null=True, default="")
     dropofftime = models.TimeField()
-    bookingclass = models.CharField(max_length=4)
-    cardescription = models.CharField(max_length=40)
-    searchid = models.CharField(max_length=10)
+    dropofftimes = models.CharField(max_length=4, blank=True, null=True, default="")
+    bookingclass = models.CharField(max_length=4, blank=True, null=True, default="")
+    cardescription = models.CharField(max_length=40, blank=True, null=True, default="")
+    searchid = models.CharField(max_length=10, blank=True, null=True, default="")
+    imgurl = models.CharField(max_length=100, blank=True, null=True, default="")
+    pickupstationid = models.CharField(max_length=10, blank=True, null=True, default="")
+    returnstationid = models.CharField(max_length=10, blank=True, null=True, default="")
+
+
 

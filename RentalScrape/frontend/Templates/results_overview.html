@@ -72,7 +72,7 @@
         {% for obj in bookingclassOffers %}
 <div class="card">
   <div class="card-body">
-    <img itemprop="image" src="http://127.0.0.1:8000/static/Images/{{ obj.bookingclass }}.png" align="left" width="200" onerror=this.src="http://127.0.0.1:8000/static/Images/XXXX.png" style="vertical-align:middle;margin:0px 15px">
+    <img itemprop="image" src="{{ obj.imgurl }}" align="left" onerror=this.src="http://127.0.0.1:8000/static/Images/XXXX.png" width="200" style="vertical-align:middle;margin:0px 15px">
     <h5 class="card-title">{{ obj.cartype }}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{obj.bookingclass}}</h6>
     <p class="card-text">

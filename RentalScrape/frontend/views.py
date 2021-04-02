@@ -17,9 +17,8 @@ def QueryCreateView(httprequest, *args, **kwargs):
     if search_form.is_valid():
         search_form.save()
         search_form = SearchForm2()
-        from .Scrape_sqlite import Scrape
-        t1 = Scrape()
-        t1.start()
+        from .Scrape_sqlite_NEW import Scrape
+        Scrape()
         return HttpResponseRedirect('results/')
 
     context = {
@@ -43,7 +42,7 @@ def BookingclassView(httprequest, bc):
     """This view returns the results for each bookingclass"""
 
     bookingclassOffers = Offer.objects.all() \
-        .values('bookingclass', 'price', 'cardescription', 'cartype', 'pickupdate', 'pickuptime', 'dropoffdate', 'dropofftime', 'mileage') \
+        .values('bookingclass', 'price', 'cardescription', 'cartype', 'pickupdate', 'pickuptime', 'dropoffdate', 'dropofftime', 'mileage', 'imgurl') \
         .filter(bookingclass=bc) \
         .order_by('price')
 
@@ -56,10 +55,11 @@ def BookingclassView(httprequest, bc):
 
 def OfferListBookingclass(httprequest, *args, **kwargs):
     """This view returns the result organized by bookingclass and price"""
-    bookingclassOffers = Offer.objects.all()\
-        .values('bookingclass', 'price', 'cardescription', 'cartype')\
-        .annotate(dcount=Count('bookingclass'))\
+    bookingclassOffers = Offer.objects.all() \
+        .values('bookingclass', 'price', 'cardescription', 'cartype', 'imgurl') \
+        .annotate(c=Count('bookingclass', distinct=True)) \
         .order_by('price')
+
     context = {
         "bookingclassOffers": bookingclassOffers,
         "title": "bookingclassoffers",

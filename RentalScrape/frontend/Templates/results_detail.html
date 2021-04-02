@@ -71,7 +71,7 @@
         {% for obj in bookingclassOffers %}
 <div class="card">
   <div class="card-body">
-    <img itemprop="image" src="http://127.0.0.1:8000/static/Images/{{ obj.bookingclass }}.png" align="left" width="300" onerror=this.src="http://127.0.0.1:8000/static/Images/XXXX.png" style="vertical-align:middle;margin:0px 15px">
+    <img itemprop="image" src="{{ obj.imgurl }}" align="left" width="300" onerror=this.src="http://127.0.0.1:8000/static/Images/XXXX.png" style="vertical-align:middle;margin:0px 15px">
     <h5 class="card-title">{{ obj.cartype }}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{obj.bookingclass}} - {{ obj.cardescription }}</h6>
     <p class="card-text">
@@ -82,7 +82,7 @@
         </ul>
         <h2 class="card-title pricing-card-title" align="left">{{ obj.price }}€<small class="text-muted"> in total</small></h2>
     </p>
-    <a href="https://www.sixt.at/#/deals?campaign=2-de-de-10-gn-PKW-gn-Mietwagenecke" target="_blank" class="btn btn-lg btn-block btn-outline-primary" role="button">Book now and get a voucher worth €10!</a>
+    <a href="https://www.sixt.at/php/reservation/directoffer?uci={{ obj.pickupstationid }}&rci={{ obj.returnstationid }}&uda={{ obj.pickupdate }}&rda={{ obj.dropoffdate }}&uti=1200&rti=0900&kdnr=&pasw=" target="_blank" class="btn btn-lg btn-block btn-outline-primary" role="button">Book now and get a voucher worth €10!</a>
   </div>
 </div>
     <br>
